@@ -1,0 +1,47 @@
+## CWX-Mods
+*.exe
+*.zip
+bin/
+obj/
+*.editorconfig
+
+## visual studio
+.vs
+.idea
+slnx.sqlite
+slnx-journal.sqlite
+
+## nodejs
+node_modules
+node.exe
+package-lock.json
+
+## windows
+desktop.ini
+
+## Archive
+Archive/CWX-AirDrop/bin
+Archive/CWX-AirDrop/obj
+
+## Live
+Live/CWX-BushWhacker/BushWhacker/bin
+Live/CWX-BushWhacker/BushWhacker/obj
+
+Live/CWX-DeSharpener/project/bin
+Live/CWX-DeSharpener/project/obj
+
+Live/CWX-MasterKey/CWX-MasterKey/bin
+Live/CWX-MasterKey/CWX-MasterKey/obj
+
+Live/CWX-VoiceAdder/VoiceAdd/bin
+Live/CWX-VoiceAdder/VoiceAdd/obj
+
+Live/CWX-WeatherPatcher/EFT.WeatherEditor/bin
+Live/CWX-WeatherPatcher/EFT.WeatherEditor/obj
+
+## WIP
+WIP/CWX-BackpackReload/CWX-BackpackReload/bin
+WIP/CWX-BackpackReload/CWX-BackpackReload/obj
+
+WIP/CWX-BUNDLEMAKER/BUNDLEMAKER/bin
+WIP/CWX-BUNDLEMAKER/BUNDLEMAKER/obj

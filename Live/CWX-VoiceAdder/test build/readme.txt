@@ -1,0 +1,1 @@
+allows a "coreMod" approach

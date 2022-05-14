@@ -20,8 +20,8 @@ package-lock.json
 desktop.ini
 
 ## Archive
-Archive/CWX-AirDrop/bin
-Archive/CWX-AirDrop/obj
+Old/CWX-AirDrop/bin
+Old/CWX-AirDrop/obj
 
 ## Live
 Live/CWX-BushWhacker/BushWhacker/bin

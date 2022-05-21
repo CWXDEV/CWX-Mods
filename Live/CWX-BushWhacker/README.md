@@ -1,5 +1,0 @@
-# BushWhacker
-## CWX-BushWhacker for EFT - SPT-AKI
-### CURRENT AKI VERSION: 2.3.1
-### GAMEVERSION: 0.12.12.17349
-### USING BEPINEX

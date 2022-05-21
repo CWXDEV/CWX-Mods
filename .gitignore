@@ -24,20 +24,24 @@ Old/CWX-AirDrop/bin
 Old/CWX-AirDrop/obj
 
 ## Live
-Live/CWX-BushWhacker/BushWhacker/bin
-Live/CWX-BushWhacker/BushWhacker/obj
+Live/CWX_BushWhacker/bin
+Live/CWX_BushWhacker/obj
 
-Live/CWX-DeSharpener/project/bin
-Live/CWX-DeSharpener/project/obj
+Live/CWX_DeSharpener/bin
+Live/CWX_DeSharpener/obj
 
-Live/CWX-MasterKey/CWX-MasterKey/bin
-Live/CWX-MasterKey/CWX-MasterKey/obj
+Live/CWX_MasterKey/bin
+Live/CWX_MasterKey/obj
 
-Live/CWX-VoiceAdder/VoiceAdd/bin
-Live/CWX-VoiceAdder/VoiceAdd/obj
+Live/CWX_VoiceAdder/bin
+Live/CWX_VoiceAdder/obj
 
-Live/CWX-WeatherPatcher/EFT.WeatherEditor/bin
-Live/CWX-WeatherPatcher/EFT.WeatherEditor/obj
+Live/CWX_WeatherPatcher/bin
+Live/CWX_WeatherPatcher/obj
+
+Live/Shared/AKI
+Live/Shared/BepInEx
+Live/Shared/EFT
 
 ## WIP
 WIP/CWX-BackpackReload/CWX-BackpackReload/bin

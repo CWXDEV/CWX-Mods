@@ -11,11 +11,11 @@ namespace CWX_WeatherPatcher
         {
             Logger.LogMessage("Loading: CWX-WeatherPatcher - V3.0.0");
 
-            new CWX_WeatherPatch1().Enable();
-            new CWX_WeatherPatch2().Enable();
-            new CWX_WeatherPatch3().Enable();
-            new CWX_WeatherPatch4().Enable();
-            new CWX_WeatherPatch5().Enable();
+            new GClassPatch().Enable();
+            new CustomGlobalFogPatch().Enable();
+            new LevelSettingsPatch().Enable();
+            new TOD_ScatteringPatch().Enable();
+            new GameWorldPatch().Enable();
         }
 
         public static void Fix()

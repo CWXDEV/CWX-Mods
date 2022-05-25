@@ -1,0 +1,9 @@
+{
+    "name": "MASTERKEY",
+    "author": "CWX",
+    "version": "1.2.0",
+    "license": "NCSA",
+    "main": "package.js",
+    "akiVersion": "3.0.0"
+}
+

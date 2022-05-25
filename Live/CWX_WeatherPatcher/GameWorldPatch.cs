@@ -1,8 +1,9 @@
 ﻿using System.Reflection;
 using Aki.Reflection.Patching;
+using CWX_WeatherPatcher;
 using EFT;
 
-namespace CWX_MasterKey
+namespace CWX_WeatherPatch
 {
     public class GameWorldPatch : ModulePatch
     {
@@ -14,7 +15,7 @@ namespace CWX_MasterKey
         [PatchPostfix]
         private static void PatchPostFix()
         {
-            MasterKey.Start();
+            Plugin.Fix();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace DeSharpener
                 "Set the sharpness value for your game to run at, " +
                 "this will not change when using painkillers"
                 );
-            new DeSharpener().Enable();
+            new SharpenPatch().Enable();
         }
     }
 }

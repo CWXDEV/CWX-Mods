@@ -8,7 +8,7 @@ namespace CWX_MasterKey
     {
         private void Awake()
         {
-            new Patch().Enable();
+            new GameWorldPatch().Enable();
         }
     }
 }

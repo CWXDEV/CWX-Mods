@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CWX_MasterKey
 {
-    public class MasterKey
+    public static class MasterKey
     {
         public static void Start()
         {

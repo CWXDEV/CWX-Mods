@@ -7,11 +7,11 @@ namespace CWX_WeatherPatcher
     {
         protected override MethodBase GetTargetMethod()
         {
-            return typeof(GClass1697).GetMethod("smethod_0", BindingFlags.NonPublic | BindingFlags.Static);
+            return typeof(GClass1699).GetMethod("smethod_0", BindingFlags.NonPublic | BindingFlags.Static);
         }
 
         [PatchPostfix]
-        private static void PatchPostfix(ref GClass1697 __result)
+        private static void PatchPostfix(ref GClass1699 __result)
         {
             __result.Cloudness = -1;
             __result.WindDirection = 8;

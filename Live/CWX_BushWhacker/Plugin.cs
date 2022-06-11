@@ -17,13 +17,16 @@ namespace BushWhacker
 
         public static void DisableBushes()
         {
-            var gameWorld = Singleton<GameWorld>.Instance;
-            var bushes = GameObject.FindObjectsOfType<ObstacleCollider>().ToList();
+            var bushes = FindObjectsOfType<ObstacleCollider>().ToList();
+            Debug.LogError(bushes.Count);
             foreach (var bushesItem in bushes)
             {
-                if (bushesItem.transform.parent.gameObject.name.Contains("filbert") || bushesItem.transform.parent.gameObject.name.Contains("fibert"))
+                Debug.LogError("1");
+                var filbert = bushesItem?.transform?.parent?.gameObject?.name?.Contains("filbert");
+                var fibert = bushesItem?.transform?.parent?.gameObject?.name?.Contains("fibert");
+                if (filbert == true || fibert == true)
                 {
-                    Object.DestroyImmediate(bushesItem);
+                    DestroyImmediate(bushesItem);
                 }
             }
         }

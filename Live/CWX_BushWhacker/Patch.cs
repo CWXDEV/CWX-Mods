@@ -11,10 +11,10 @@ namespace BushWhacker
         {
             return typeof(GameWorld).GetMethod("OnGameStarted", BindingFlags.Public | BindingFlags.Instance);
         }
+
         [PatchPostfix]
         public static void PatchPostFix()
         {
-            Debug.LogError("test patch");
             BushWhacker.DisableBushes();
         }
     }

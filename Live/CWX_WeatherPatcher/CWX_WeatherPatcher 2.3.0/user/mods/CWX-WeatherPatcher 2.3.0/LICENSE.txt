@@ -4,8 +4,8 @@ Copyright (c) [year] [fullname]. All rights reserved.
 
 Developed by: 
               [CWX]
-              [https://github.com/CWXDEV/CWX-WeatherPatcher]
-			  [https://hub.sp-tarkov.com/files/file/319-cwx-weatherpatcher/]
+              [https://github.com/CWXDEV/CWX-DeSharpener]
+			  [https://hub.sp-tarkov.com/files/file/455-cwx-desharpener/]
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation files

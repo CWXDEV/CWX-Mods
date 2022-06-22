@@ -11,7 +11,7 @@ class CWX_MasterKey implements IMod
         // get the logger from the server container
         const logger = container.resolve<ILogger>("WinstonLogger");
 		this.pkg = require("../package.json")
-        logger.info(`Loading: ${this.pkg.name} - ${this.pkg.version}`);
+        logger.info(`Loading: ${this.pkg.author}: ${this.pkg.name} - ${this.pkg.version}`);
     }
 
     public delayedLoad(container: DependencyContainer): void

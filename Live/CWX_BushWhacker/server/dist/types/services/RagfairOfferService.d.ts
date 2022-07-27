@@ -1,7 +1,9 @@
 import { ProfileHelper } from "../helpers/ProfileHelper";
 import { RagfairServerHelper } from "../helpers/RagfairServerHelper";
 import { Item } from "../models/eft/common/tables/IItem";
+import { IItemEventRouterResponse } from "../models/eft/itemEvent/IItemEventRouterResponse";
 import { IRagfairOffer } from "../models/eft/ragfair/IRagfairOffer";
+import { IRagfairConfig } from "../models/spt/config/IRagfairConfig";
 import { ILogger } from "../models/spt/utils/ILogger";
 import { ItemEventRouter } from "../routers/ItemEventRouter";
 import { ConfigServer } from "../servers/ConfigServer";
@@ -9,27 +11,33 @@ import { DatabaseServer } from "../servers/DatabaseServer";
 import { SaveServer } from "../servers/SaveServer";
 import { HttpResponseUtil } from "../utils/HttpResponseUtil";
 import { TimeUtil } from "../utils/TimeUtil";
+import { RagfairCategoriesService } from "./RagfairCategoriesService";
 export declare class RagfairOfferService {
-    private logger;
-    private timeUtil;
-    private databaseServer;
-    private saveServer;
-    private ragfairServerHelper;
-    private profileHelper;
-    private itemEventRouter;
-    private httpResponse;
-    private configServer;
-    private playerOffersLoaded;
-    private toUpdate;
-    private expiredOffers;
-    private offers;
-    private ragfairConfig;
-    constructor(logger: ILogger, timeUtil: TimeUtil, databaseServer: DatabaseServer, saveServer: SaveServer, ragfairServerHelper: RagfairServerHelper, profileHelper: ProfileHelper, itemEventRouter: ItemEventRouter, httpResponse: HttpResponseUtil, configServer: ConfigServer);
+    protected logger: ILogger;
+    protected timeUtil: TimeUtil;
+    protected databaseServer: DatabaseServer;
+    protected saveServer: SaveServer;
+    protected ragfairServerHelper: RagfairServerHelper;
+    protected ragfairCategoriesService: RagfairCategoriesService;
+    protected profileHelper: ProfileHelper;
+    protected itemEventRouter: ItemEventRouter;
+    protected httpResponse: HttpResponseUtil;
+    protected configServer: ConfigServer;
+    protected playerOffersLoaded: boolean;
+    protected toUpdate: Record<string, boolean>;
+    protected expiredOffers: Item[];
+    protected offers: IRagfairOffer[];
+    protected ragfairConfig: IRagfairConfig;
+    constructor(logger: ILogger, timeUtil: TimeUtil, databaseServer: DatabaseServer, saveServer: SaveServer, ragfairServerHelper: RagfairServerHelper, ragfairCategoriesService: RagfairCategoriesService, profileHelper: ProfileHelper, itemEventRouter: ItemEventRouter, httpResponse: HttpResponseUtil, configServer: ConfigServer);
+    /**
+     * Get all offers
+     * @returns IRagfairOffer array
+     */
     getOffers(): IRagfairOffer[];
     getOfferByOfferId(offerId: string): IRagfairOffer;
     getOffersOfType(templateId: string): IRagfairOffer[];
     addOffer(offer: IRagfairOffer): void;
-    addOfferToExpired(offer: Item): void;
+    addOfferToExpired(staleOffer: IRagfairOffer): void;
     setTraderUpdateStatus(traderId: string, shouldUpdate: boolean): void;
     shouldTraderBeUpdated(traderID: string): boolean;
     getExpiredOfferCount(): number;
@@ -57,8 +65,8 @@ export declare class RagfairOfferService {
      * Get an array of stale offers that are still shown to player
      * @returns IRagfairOffer array
      */
-    private getStaleOffers;
-    private isStale;
-    private processStaleOffer;
-    private returnPlayerOffer;
+    protected getStaleOffers(): IRagfairOffer[];
+    protected isStale(offer: IRagfairOffer, time: number): boolean;
+    protected processStaleOffer(staleOffer: IRagfairOffer): void;
+    protected returnPlayerOffer(offer: IRagfairOffer): IItemEventRouterResponse;
 }

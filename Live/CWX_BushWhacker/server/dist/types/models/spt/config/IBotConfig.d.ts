@@ -5,6 +5,7 @@ export interface IBotConfig extends IBaseConfig {
     bosses: string[];
     durability: Durability;
     lootNValue: LootNvalue;
+    revenge: Record<string, string[]>;
     pmc: PmcConfig;
     showTypeInNickname: boolean;
     maxBotCap: number;
@@ -17,6 +18,7 @@ export interface PresetBatch {
     bossKojaniy: number;
     bossSanitar: number;
     bossTagilla: number;
+    bossKnight: number;
     bossTest: number;
     cursedAssault: number;
     followerBully: number;
@@ -27,6 +29,8 @@ export interface PresetBatch {
     followerKojaniy: number;
     followerSanitar: number;
     followerTagilla: number;
+    followerBirdEye: number;
+    followerBigPipe: number;
     followerTest: number;
     marksman: number;
     pmcBot: number;
@@ -97,6 +101,7 @@ export interface PmcConfig {
     maxPocketLootTotalRub: number;
     maxVestLootTotalRub: number;
     types: Types;
+    enemyTypes: string[];
 }
 export interface DynamicLoot {
     whitelist: string[];

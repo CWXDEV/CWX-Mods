@@ -9,12 +9,13 @@ import { ICompletion, ICompletionAvailableFor, IElimination, IEliminationConditi
 import { IItemEventRouterResponse } from "../models/eft/itemEvent/IItemEventRouterResponse";
 import { IRepeatableQuestChangeRequest } from "../models/eft/quests/IRepeatableQuestChangeRequest";
 import { ELocationName } from "../models/enums/ELocationName";
-import { IRepeatableQuestConfig } from "../models/spt/config/IQuestConfig";
+import { IQuestConfig, IRepeatableQuestConfig } from "../models/spt/config/IQuestConfig";
 import { ILogger } from "../models/spt/utils/ILogger";
 import { ItemEventRouter } from "../routers/ItemEventRouter";
 import { ConfigServer } from "../servers/ConfigServer";
 import { DatabaseServer } from "../servers/DatabaseServer";
 import { PaymentService } from "../services/PaymentService";
+import { ProfileFixerService } from "../services/ProfileFixerService";
 import { JsonUtil } from "../utils/JsonUtil";
 import { MathUtil } from "../utils/MathUtil";
 import { ObjectId } from "../utils/ObjectId";
@@ -48,22 +49,23 @@ export interface ITargetLocation {
     locations: string[];
 }
 export declare class RepeatableQuestController {
-    private timeUtil;
-    private logger;
-    private randomUtil;
-    private mathUtil;
-    private jsonUtil;
-    private databaseServer;
-    private itemHelper;
-    private presetHelper;
-    private profileHelper;
-    private ragfairServerHelper;
-    private itemEventRouter;
-    private paymentService;
-    private objectId;
-    private configServer;
-    private questConfig;
-    constructor(timeUtil: TimeUtil, logger: ILogger, randomUtil: RandomUtil, mathUtil: MathUtil, jsonUtil: JsonUtil, databaseServer: DatabaseServer, itemHelper: ItemHelper, presetHelper: PresetHelper, profileHelper: ProfileHelper, ragfairServerHelper: RagfairServerHelper, itemEventRouter: ItemEventRouter, paymentService: PaymentService, objectId: ObjectId, configServer: ConfigServer);
+    protected timeUtil: TimeUtil;
+    protected logger: ILogger;
+    protected randomUtil: RandomUtil;
+    protected mathUtil: MathUtil;
+    protected jsonUtil: JsonUtil;
+    protected databaseServer: DatabaseServer;
+    protected itemHelper: ItemHelper;
+    protected presetHelper: PresetHelper;
+    protected profileHelper: ProfileHelper;
+    protected profileFixerService: ProfileFixerService;
+    protected ragfairServerHelper: RagfairServerHelper;
+    protected itemEventRouter: ItemEventRouter;
+    protected paymentService: PaymentService;
+    protected objectId: ObjectId;
+    protected configServer: ConfigServer;
+    protected questConfig: IQuestConfig;
+    constructor(timeUtil: TimeUtil, logger: ILogger, randomUtil: RandomUtil, mathUtil: MathUtil, jsonUtil: JsonUtil, databaseServer: DatabaseServer, itemHelper: ItemHelper, presetHelper: PresetHelper, profileHelper: ProfileHelper, profileFixerService: ProfileFixerService, ragfairServerHelper: RagfairServerHelper, itemEventRouter: ItemEventRouter, paymentService: PaymentService, objectId: ObjectId, configServer: ConfigServer);
     /**
      * This is the method reached by the /client/repeatalbeQuests/activityPeriods endpoint
      * Returns an array of objects in the format of repeatable quests to the client.

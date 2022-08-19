@@ -1,4 +1,5 @@
-import { IPmcData, Stats } from "../models/eft/common/IPmcData";
+import { IPmcData } from "../models/eft/common/IPmcData";
+import { Stats } from "../models/eft/common/tables/IBotBase";
 import { IAkiProfile } from "../models/eft/profile/IAkiProfile";
 import { IValidateNicknameRequestData } from "../models/eft/profile/IValidateNicknameRequestData";
 import { DatabaseServer } from "../servers/DatabaseServer";
@@ -20,6 +21,12 @@ export declare class ProfileHelper {
     resetProfileQuestCondition(sessionID: string, conditionId: string): void;
     getCompleteProfile(sessionID: string): IPmcData[];
     isNicknameTaken(info: IValidateNicknameRequestData, sessionID: string): boolean;
+    /**
+     * Add experience to a PMC inside the players profile
+     * @param sessionID Session id
+     * @param experienceToAdd Experiecne to add to PMC character
+     */
+    addExperienceToPmc(sessionID: string, experienceToAdd: number): void;
     getProfileByPmcId(pmcId: string): IPmcData;
     getExperience(level: number): number;
     getMaxLevel(): number;
@@ -28,6 +35,12 @@ export declare class ProfileHelper {
     getPmcProfile(sessionID: string): IPmcData;
     getScavProfile(sessionID: string): IPmcData;
     getDefaultCounters(): Stats;
-    private isWiped;
-    private getServerVersion;
+    protected isWiped(sessionID: string): boolean;
+    protected getServerVersion(): string;
+    /**
+     * Iterate over player profile inventory items and find the secure container and remove it
+     * @param profile Profile to remove secure container from
+     * @returns profile without secure container
+     */
+    removeSecureContainer(profile: IPmcData): IPmcData;
 }

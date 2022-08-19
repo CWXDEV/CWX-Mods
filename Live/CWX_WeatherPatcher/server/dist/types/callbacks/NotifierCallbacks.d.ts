@@ -6,9 +6,9 @@ import { INotifierChannel } from "../models/eft/notifier/INotifier";
 import { ISelectProfileRequestData } from "../models/eft/notifier/ISelectProfileRequestData";
 import { HttpResponseUtil } from "../utils/HttpResponseUtil";
 export declare class NotifierCallbacks {
-    private httpServerHelper;
-    private httpResponse;
-    private notifierController;
+    protected httpServerHelper: HttpServerHelper;
+    protected httpResponse: HttpResponseUtil;
+    protected notifierController: NotifierController;
     constructor(httpServerHelper: HttpServerHelper, httpResponse: HttpResponseUtil, notifierController: NotifierController);
     /**
      * If we don't have anything to send, it's ok to not send anything back

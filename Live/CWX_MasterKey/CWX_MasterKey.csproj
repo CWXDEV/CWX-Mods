@@ -15,7 +15,7 @@
       <HintPath>..\Shared\AKI\Aki.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\Shared\EFT\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\ALT-Mods\Shared\EFT\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx">
       <HintPath>..\Shared\BepInEx\BepInEx.dll</HintPath>

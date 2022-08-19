@@ -14,7 +14,6 @@ namespace CWX_WeatherPatcher
         private static void PostFixPatch(ref CustomGlobalFog __instance)
         {
             __instance.FuncStart = 0f;
-            Logger.LogMessage("MADE CHANGES TO CUSTOMGLOBALFOG!");
         }
     }
 }

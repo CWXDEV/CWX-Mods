@@ -1,3 +1,4 @@
+import { Item } from "../models/eft/common/tables/IItem";
 import { Dialogue, MessageContent, MessagePreview } from "../models/eft/profile/IAkiProfile";
 import { MessageType } from "../models/enums/MessageType";
 import { DatabaseServer } from "../servers/DatabaseServer";
@@ -7,15 +8,33 @@ import { ItemHelper } from "./ItemHelper";
 import { NotificationSendHelper } from "./NotificationSendHelper";
 import { NotifierHelper } from "./NotifierHelper";
 export declare class DialogueHelper {
-    private hashUtil;
-    private saveServer;
-    private databaseServer;
-    private notifierHelper;
-    private notificationSendHelper;
-    private itemHelper;
+    protected hashUtil: HashUtil;
+    protected saveServer: SaveServer;
+    protected databaseServer: DatabaseServer;
+    protected notifierHelper: NotifierHelper;
+    protected notificationSendHelper: NotificationSendHelper;
+    protected itemHelper: ItemHelper;
     constructor(hashUtil: HashUtil, saveServer: SaveServer, databaseServer: DatabaseServer, notifierHelper: NotifierHelper, notificationSendHelper: NotificationSendHelper, itemHelper: ItemHelper);
     createMessageContext(templateId: string, messageType: MessageType, maxStoreTime: number): MessageContent;
+    /**
+     * Add a templated message to the dialogue.
+     * @param dialogueID
+     * @param messageContent
+     * @param sessionID
+     * @param rewards
+     */
     addDialogueMessage(dialogueID: string, messageContent: MessageContent, sessionID: string, rewards?: any[]): void;
+    /**
+     * Get the preview contents of the last message in a dialogue.
+     * @param dialogue
+     * @returns
+     */
     getMessagePreview(dialogue: Dialogue): MessagePreview;
-    getMessageItemContents(messageID: string, sessionID: string): any[];
+    /**
+     * Get the item contents for a particular message.
+     * @param messageID
+     * @param sessionID
+     * @returns
+     */
+    getMessageItemContents(messageID: string, sessionID: string): Item[];
 }

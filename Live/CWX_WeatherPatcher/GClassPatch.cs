@@ -1,5 +1,6 @@
 using Aki.Reflection.Patching;
 using System.Reflection;
+using EFT;
 
 namespace CWX_WeatherPatcher
 {
@@ -7,11 +8,11 @@ namespace CWX_WeatherPatcher
     {
         protected override MethodBase GetTargetMethod()
         {
-            return typeof(GClass1699).GetMethod("smethod_0", BindingFlags.NonPublic | BindingFlags.Static);
+            return typeof(WeatherClass).GetMethod("smethod_0", BindingFlags.NonPublic | BindingFlags.Static);
         }
 
         [PatchPostfix]
-        private static void PatchPostfix(ref GClass1699 __result)
+        private static void PatchPostfix(ref WeatherClass __result)
         {
             __result.Cloudness = -1;
             __result.WindDirection = 8;
@@ -21,8 +22,6 @@ namespace CWX_WeatherPatcher
             __result.ScaterringFogDensity = 0;
             __result.GlobalFogDensity = 0;
             __result.GlobalFogHeight = 0;
-
-            Logger.LogMessage("MADE CHANGES TO GClass1694 SMETHOD_0!");
         }
     }
 }

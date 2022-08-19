@@ -1,6 +1,4 @@
 ﻿using BepInEx;
-using Comfort.Common;
-using EFT;
 using EFT.Interactive;
 using System.Linq;
 using UnityEngine;
@@ -18,10 +16,22 @@ namespace BushWhacker
         public static void DisableBushes()
         {
             var bushes = FindObjectsOfType<ObstacleCollider>().ToList();
+
+            var swamps = FindObjectsOfType<BoxCollider>().ToList();
+
+            foreach (var swamp in swamps)
+            {
+                if (swamp.name == "Swamp_collider")
+                {
+                    DestroyImmediate(swamp);
+                }
+            }
+
             foreach (var bushesItem in bushes)
             {
                 var filbert = bushesItem?.transform?.parent?.gameObject?.name?.Contains("filbert");
                 var fibert = bushesItem?.transform?.parent?.gameObject?.name?.Contains("fibert");
+
                 if (filbert == true || fibert == true)
                 {
                     DestroyImmediate(bushesItem);

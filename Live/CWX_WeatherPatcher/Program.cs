@@ -4,13 +4,11 @@ using EFT.Weather;
 
 namespace CWX_WeatherPatcher
 {
-    [BepInPlugin("com.CWX.WeatherPatcher", "CWX-WeatherPatcher", "3.0.0")]
+    [BepInPlugin("com.CWX.WeatherPatcher", "CWX-WeatherPatcher", "2.4.0")]
     public class Plugin : BaseUnityPlugin
     {
         private void Awake()
         {
-            Logger.LogMessage("Loading: CWX-WeatherPatcher - V3.0.0");
-
             new GClassPatch().Enable();
             new CustomGlobalFogPatch().Enable();
             new LevelSettingsPatch().Enable();

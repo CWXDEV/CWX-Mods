@@ -4,7 +4,7 @@ using EFT;
 
 namespace CWX_MasterKey
 {
-    public class GameWorldPatch : ModulePatch
+    public class MasterKeyPatch : ModulePatch
     {
         protected override MethodBase GetTargetMethod()
         {

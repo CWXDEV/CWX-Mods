@@ -1,3 +1,4 @@
+import { MinMax } from "../../common/MinMax";
 import { IBaseConfig } from "./IBaseConfig";
 export interface IBotConfig extends IBaseConfig {
     kind: "aki-bot";
@@ -5,9 +6,13 @@ export interface IBotConfig extends IBaseConfig {
     bosses: string[];
     durability: Durability;
     lootNValue: LootNvalue;
+    revenge: Record<string, string[]>;
     pmc: PmcConfig;
+    itemSpawnLimits: Record<string, Record<string, number>>;
+    equipment: Record<string, Equipment>;
     showTypeInNickname: boolean;
     maxBotCap: number;
+    secureContainerAmmoStackCount: number;
 }
 export interface PresetBatch {
     assault: number;
@@ -17,6 +22,7 @@ export interface PresetBatch {
     bossKojaniy: number;
     bossSanitar: number;
     bossTagilla: number;
+    bossKnight: number;
     bossTest: number;
     cursedAssault: number;
     followerBully: number;
@@ -27,6 +33,8 @@ export interface PresetBatch {
     followerKojaniy: number;
     followerSanitar: number;
     followerTagilla: number;
+    followerBirdEye: number;
+    followerBigPipe: number;
     followerTest: number;
     marksman: number;
     pmcBot: number;
@@ -86,9 +94,10 @@ export interface LootNvalue {
     pmc: number;
 }
 export interface PmcConfig {
-    dynamicLoot: DynamicLoot;
-    cartridgeBlacklist: string[];
+    dynamicLoot: PmcDynamicLoot;
     difficulty: string;
+    looseWeaponInBackpackChancePercent: number;
+    looseWeaponInBackpackLootMinMax: MinMax;
     isUsec: number;
     chanceSameSideIsHostilePercent: number;
     usecType: string;
@@ -96,17 +105,20 @@ export interface PmcConfig {
     maxBackpackLootTotalRub: number;
     maxPocketLootTotalRub: number;
     maxVestLootTotalRub: number;
-    types: Types;
+    convertIntoPmcChance: Record<string, MinMax>;
+    enemyTypes: string[];
 }
-export interface DynamicLoot {
+export interface PmcDynamicLoot {
     whitelist: string[];
     blacklist: string[];
-    spawnLimits: Record<string, number>;
     moneyStackLimits: Record<string, number>;
 }
-export interface Types {
-    assault: number;
-    cursedAssault: number;
-    pmcBot: number;
-    exUsec: number;
+export interface Equipment {
+    blacklist: EquipmentFilterDetails[];
+    whitelist: EquipmentFilterDetails[];
+}
+export interface EquipmentFilterDetails {
+    levelRange: MinMax;
+    equipment: Record<string, string[]>;
+    cartridge: Record<string, string[]>;
 }

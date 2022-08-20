@@ -1,0 +1,19 @@
+{
+    "showLogs": true,
+    "globalsConfig": {
+        "noFallDamage": true,
+        "openFlea": true,
+        "quickScav": true
+    },
+    "ragfairConfig": {
+        "staticTrader": true,
+        "roublesOnly": true,
+        "disableBSGBlacklist": true
+    },
+    "locationConfig": {
+        "turnLootOff": true
+    },
+    "inraidConfig": {
+        "turnPVEOff": true
+    }
+}

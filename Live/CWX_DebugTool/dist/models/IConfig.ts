@@ -5,6 +5,7 @@ export interface IConfig
     ragfairConfig: ragfairConfig
     locationConfig: locationConfig
     inraidConfig: inraidConfig
+    itemsConfig: itemsConfig
 }
 
 export interface globalsConfig
@@ -29,4 +30,10 @@ export interface locationConfig
 export interface inraidConfig
 {
     turnPVEOff: boolean
+}
+
+export interface itemsConfig
+{
+    changeShrapProps: boolean
+    changeMaxAmmoForKS23: boolean
 }

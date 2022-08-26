@@ -15,5 +15,9 @@
     },
     "inraidConfig": {
         "turnPVEOff": true
+    },
+    "itemsConfig": {
+        "changeShrapProps": true,
+        "changeMaxAmmoForKS23": true
     }
 }

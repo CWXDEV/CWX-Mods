@@ -33,6 +33,11 @@ export class CWX_Logging
 
         // inraid
         this.TurnPVEOff();
+
+        // items
+        this.changeShrapProps();
+        this.changeMaxAmmoForKS23();
+
     }
     
     private NoFallDamage(): void
@@ -63,7 +68,7 @@ export class CWX_Logging
     {
         if (this.config.ragfairConfig.staticTrader)
         {
-            this.logger.info("Static Trader Activated")
+            this.logger.info("Static Trader Activated");
         }
     }
 
@@ -71,7 +76,7 @@ export class CWX_Logging
     {
         if (this.config.ragfairConfig.roublesOnly)
         {
-            this.logger.info("Roubles Only Activated")
+            this.logger.info("Roubles Only Activated");
         }
     }
 
@@ -79,7 +84,7 @@ export class CWX_Logging
     {
         if (this.config.ragfairConfig.disableBSGBlacklist)
         {
-            this.logger.info("Disable BSG Blacklist Activated")
+            this.logger.info("Disable BSG Blacklist Activated");
         }
     }
 
@@ -87,7 +92,7 @@ export class CWX_Logging
     {
         if (this.config.locationConfig.turnLootOff)
         {
-            this.logger.info("Turn Loot Off Activated")
+            this.logger.info("Turn Loot Off Activated");
         }
     }
 
@@ -95,7 +100,23 @@ export class CWX_Logging
     {
         if (this.config.inraidConfig.turnPVEOff)
         {
-            this.logger.info("Turn PVE Off Activated")
+            this.logger.info("Turn PVE Off Activated");
+        }
+    }
+
+    private changeShrapProps():void
+    {
+        if (this.config.itemsConfig.changeShrapProps)
+        {
+            this.logger.info("Change Shrap Props Activated");
+        }
+    }
+
+    private changeMaxAmmoForKS23():void
+    {
+        if (this.config.itemsConfig.changeMaxAmmoForKS23)
+        {
+            this.logger.info("Change Max Ammo For KS23 Activated");
         }
     }
 }

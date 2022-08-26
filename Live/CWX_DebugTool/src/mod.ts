@@ -7,6 +7,7 @@ import { CWX_Logging } from "./logging";
 import { CWX_RagfairConfig } from "./ragfairConfig";
 import { CWX_LocationConfig } from "./locationConfig";
 import { CWX_InraidConfig } from "./inraidConfig";
+import { CWX_ItemsConfig } from "./itemsConfig";
 
 
 class CWX_DebugTool implements IPostDBLoadMod
@@ -18,6 +19,7 @@ class CWX_DebugTool implements IPostDBLoadMod
         container.register<CWX_RagfairConfig>("CWX_RagfairConfig", CWX_RagfairConfig);
         container.register<CWX_LocationConfig>("CWX_LocationConfig", CWX_LocationConfig);
         container.register<CWX_InraidConfig>("CWX_InraidConfig", CWX_InraidConfig);
+        container.register<CWX_ItemsConfig>("CWX_ItemsConfig", CWX_ItemsConfig);
         container.register<CWX_Logging>("CWX_Logging", CWX_Logging);
         
 
@@ -25,6 +27,7 @@ class CWX_DebugTool implements IPostDBLoadMod
         container.resolve<CWX_RagfairConfig>("CWX_RagfairConfig").applyChanges();
         container.resolve<CWX_LocationConfig>("CWX_LocationConfig").applyChanges();
         container.resolve<CWX_InraidConfig>("CWX_InraidConfig").applyChanges();
+        container.resolve<CWX_ItemsConfig>("CWX_ItemsConfig").applyChanges();
         
         if (container.resolve<CWX_ConfigHandler>("CWX_ConfigHandler").getConfig().showLogs)
         {

@@ -7,7 +7,6 @@ namespace VoiceAdd
     {
         private void Start()
         {
-            Logger.LogInfo("Loading: CWX-VoiceAdder - V2.0.0");
             new VoicePatch().Enable();
         }
     }

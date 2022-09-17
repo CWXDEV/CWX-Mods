@@ -2,7 +2,7 @@
 
 namespace CWX_MasterKey
 {
-    [BepInPlugin("com.CWX.MasterKey", "CWX-MasterKey", "1.3.0")]
+    [BepInPlugin("com.CWX.MasterKey", "CWX-MasterKey", "1.3.5")]
     public class Plugin : BaseUnityPlugin
     {
         private void Awake()

@@ -3,16 +3,21 @@ import { inject, injectable } from "tsyringe";
 import { CWX_ConfigHandler } from "./configHandler";
 import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
 import { ITemplateItem } from "@spt-aki/models/eft/common/tables/ITemplateItem";
+import { IItemConfig } from "@spt-aki/models/spt/config/IItemConfig"
 import { IConfig } from "models/IConfig";
+import { ConfigServer } from "@spt-aki/servers/ConfigServer";
+import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes";
 
 @injectable()
 export class CWX_ItemsConfig
 {
     private tables: Record<string, ITemplateItem>;
     private config: IConfig;
+    private itemConfig: IItemConfig;
     
     constructor(
         @inject("DatabaseServer") private databaseServer: DatabaseServer,
+        @inject("ConfigServer") private configServer: ConfigServer,
         @inject("CWX_ConfigHandler") private configHandler: CWX_ConfigHandler
     )
     {}
@@ -20,11 +25,14 @@ export class CWX_ItemsConfig
     public applyChanges(): void
     {
         this.tables = this.databaseServer.getTables().templates.items;
+        this.itemConfig = this.configServer.getConfig(ConfigTypes.ITEM);
         this.config = this.configHandler.getConfig();
 
         this.changeShrapProps();
         this.changeMaxAmmoForKS23();
+        this.removeDevFromBlacklist();
     }
+    
 
     private changeShrapProps(): void
     {
@@ -44,6 +52,14 @@ export class CWX_ItemsConfig
         if (this.config.itemsConfig.changeMaxAmmoForKS23)
         {
             ks23._props.Cartridges[0]._max_count = 30;
+        }
+    }
+    
+    private removeDevFromBlacklist(): void
+    {
+        if (this.config.itemsConfig.removeDevFromBlacklist)
+        {
+            this.itemConfig.blacklist.splice(this.itemConfig.blacklist.indexOf("58ac60eb86f77401897560ff"));
         }
     }
 }

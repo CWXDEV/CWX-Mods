@@ -4,7 +4,7 @@ using EFT.Weather;
 
 namespace CWX_WeatherPatcher
 {
-    [BepInPlugin("com.CWX.WeatherPatcher", "CWX-WeatherPatcher", "2.4.0")]
+    [BepInPlugin("com.CWX.WeatherPatcher", "CWX-WeatherPatcher", "2.4.4")]
     public class Plugin : BaseUnityPlugin
     {
         private void Awake()

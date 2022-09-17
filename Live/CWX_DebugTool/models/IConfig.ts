@@ -36,4 +36,5 @@ export interface itemsConfig
 {
     changeShrapProps: boolean
     changeMaxAmmoForKS23: boolean
+    removeDevFromBlacklist: boolean
 }

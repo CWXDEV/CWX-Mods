@@ -4,7 +4,7 @@ using EFT;
 
 namespace CWX_WeatherPatcher
 {
-    class GClassPatch : ModulePatch  // MAKES CHANGES TO GClass1694 SMETHOD_0
+    class GClassPatch : ModulePatch  // MAKES CHANGES TO WeatherClass SMETHOD_0
     {
         protected override MethodBase GetTargetMethod()
         {

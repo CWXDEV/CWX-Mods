@@ -18,6 +18,7 @@
     },
     "itemsConfig": {
         "changeShrapProps": true,
-        "changeMaxAmmoForKS23": true
+        "changeMaxAmmoForKS23": true,
+        "removeDevFromBlacklist": true
     }
 }

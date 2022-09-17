@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace CWX_WeatherPatcher
 {
-    class LevelSettingsPatch : ModulePatch  // MAKES CHANGES TO LEVELSETTINGS
+    class LevelSettingsPatch : ModulePatch  // MAKES CHANGES TO LevelSettings
     {
         protected override MethodBase GetTargetMethod()
         {

@@ -1,5 +1,5 @@
 # All in One CWX-Mods
-## currently for EFT - SPT-AKI. - 2.3.1
+## currently for EFT - SPT-AKI. - 3.2.3
 
 ### Old
 - CWX-AirDrop

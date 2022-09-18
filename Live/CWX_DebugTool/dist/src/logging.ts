@@ -37,6 +37,7 @@ export class CWX_Logging
         // items
         this.changeShrapProps();
         this.changeMaxAmmoForKS23();
+        this.removeDevFromBlacklist();
 
     }
     
@@ -104,7 +105,7 @@ export class CWX_Logging
         }
     }
 
-    private changeShrapProps():void
+    private changeShrapProps(): void
     {
         if (this.config.itemsConfig.changeShrapProps)
         {
@@ -112,11 +113,20 @@ export class CWX_Logging
         }
     }
 
-    private changeMaxAmmoForKS23():void
+    private changeMaxAmmoForKS23(): void
     {
         if (this.config.itemsConfig.changeMaxAmmoForKS23)
         {
             this.logger.info("Change Max Ammo For KS23 Activated");
         }
     }
+
+    private removeDevFromBlacklist(): void
+    {
+        if (this.config.itemsConfig.removeDevFromBlacklist)
+        {
+            this.logger.info("Remove Dev From Blacklist Activated");
+        }
+    }
+
 }

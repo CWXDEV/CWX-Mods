@@ -4,18 +4,18 @@ import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes";
 import { ConfigServer } from "@spt-aki/servers/ConfigServer";
 import { IRagfairConfig } from "@spt-aki/models/spt/config/IRagfairConfig";
 
-import { CWX_ConfigHandler } from "./configHandler";
-import { ragfairConfig } from "models/IConfig";
+import { CwxConfigHandler } from "./configHandler";
+import { RagfairConfig } from "models/IConfig";
 
 @injectable()
-export class CWX_RagfairConfig
+export class CwxRagfairConfig
 {
     private tables: IRagfairConfig;
-    private config: ragfairConfig;
+    private config: RagfairConfig;
 
     constructor(
         @inject("ConfigServer") private configServer: ConfigServer,
-        @inject("CWX_ConfigHandler") private configHandler: CWX_ConfigHandler
+        @inject("CwxConfigHandler") private configHandler: CwxConfigHandler
     )
     {}
 
@@ -24,12 +24,12 @@ export class CWX_RagfairConfig
         this.config = this.configHandler.getConfig().ragfairConfig;
         this.tables = this.configServer.getConfig(ConfigTypes.RAGFAIR);
 
-        this.StaticTrader();
-        this.RoublesOnly();
-        this.DisableBSGBlacklist();
+        this.staticTrader();
+        this.roublesOnly();
+        this.disableBSGBlacklist();
     }
 
-    private StaticTrader(): void
+    private staticTrader(): void
     {
         if (this.config.staticTrader)
         {
@@ -37,7 +37,7 @@ export class CWX_RagfairConfig
         }
     }
 
-    private RoublesOnly(): void
+    private roublesOnly(): void
     {
         if (this.config.roublesOnly)
         {
@@ -47,7 +47,7 @@ export class CWX_RagfairConfig
         }
     }
 
-    private DisableBSGBlacklist(): void
+    private disableBSGBlacklist(): void
     {
         if (this.config.disableBSGBlacklist)
         {

@@ -1,10 +1,9 @@
 using Aki.Reflection.Patching;
 using System.Reflection;
-using EFT;
 
 namespace CWX_WeatherPatcher
 {
-    class GClassPatch : ModulePatch  // MAKES CHANGES TO WeatherClass SMETHOD_0
+    public class GClassPatch : ModulePatch  // MAKES CHANGES TO WeatherClass SMETHOD_0
     {
         protected override MethodBase GetTargetMethod()
         {

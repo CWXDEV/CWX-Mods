@@ -1,24 +1,24 @@
 import { inject, injectable } from "tsyringe";
 
-import { CWX_ConfigHandler } from "./configHandler";
+import { CwxConfigHandler } from "./configHandler";
 import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
 import { ITemplateItem } from "@spt-aki/models/eft/common/tables/ITemplateItem";
 import { IItemConfig } from "@spt-aki/models/spt/config/IItemConfig"
-import { IConfig } from "models/IConfig";
+import { ItemsConfig } from "models/IConfig";
 import { ConfigServer } from "@spt-aki/servers/ConfigServer";
 import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes";
 
 @injectable()
-export class CWX_ItemsConfig
+export class CwxItemsConfig
 {
     private tables: Record<string, ITemplateItem>;
-    private config: IConfig;
+    private config: ItemsConfig;
     private itemConfig: IItemConfig;
     
     constructor(
         @inject("DatabaseServer") private databaseServer: DatabaseServer,
         @inject("ConfigServer") private configServer: ConfigServer,
-        @inject("CWX_ConfigHandler") private configHandler: CWX_ConfigHandler
+        @inject("CwxConfigHandler") private configHandler: CwxConfigHandler
     )
     {}
 
@@ -26,7 +26,7 @@ export class CWX_ItemsConfig
     {
         this.tables = this.databaseServer.getTables().templates.items;
         this.itemConfig = this.configServer.getConfig(ConfigTypes.ITEM);
-        this.config = this.configHandler.getConfig();
+        this.config = this.configHandler.getConfig().itemsConfig;
 
         this.changeShrapProps();
         this.changeMaxAmmoForKS23();
@@ -38,7 +38,7 @@ export class CWX_ItemsConfig
     {
         const shrap = this.tables["5e85a9a6eacf8c039e4e2ac1"];
 
-        if (this.config.itemsConfig.changeShrapProps)
+        if (this.config.changeShrapProps)
         {
             shrap._props.Damage = 200;
             shrap._props.InitialSpeed = 1000;
@@ -49,7 +49,7 @@ export class CWX_ItemsConfig
     {
         const ks23 = this.tables["5f647d9f8499b57dc40ddb93"];
 
-        if (this.config.itemsConfig.changeMaxAmmoForKS23)
+        if (this.config.changeMaxAmmoForKS23)
         {
             ks23._props.Cartridges[0]._max_count = 30;
         }
@@ -57,7 +57,7 @@ export class CWX_ItemsConfig
     
     private removeDevFromBlacklist(): void
     {
-        if (this.config.itemsConfig.removeDevFromBlacklist)
+        if (this.config.removeDevFromBlacklist)
         {
             this.itemConfig.blacklist.splice(this.itemConfig.blacklist.indexOf("58ac60eb86f77401897560ff"));
         }

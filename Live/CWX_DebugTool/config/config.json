@@ -20,5 +20,12 @@
         "changeShrapProps": true,
         "changeMaxAmmoForKS23": true,
         "removeDevFromBlacklist": true
+    },
+    "airdropConfig": {
+        "enableAllTheTime": true,
+        "changeFlightHeight": true,
+        "changeStartTime": true,
+        "changePlaneVolume": true
+
     }
 }

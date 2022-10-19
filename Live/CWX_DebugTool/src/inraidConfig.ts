@@ -4,18 +4,18 @@ import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes";
 import { ConfigServer } from "@spt-aki/servers/ConfigServer";
 import { IInRaidConfig } from "@spt-aki/models/spt/config/IInRaidConfig";
 
-import { CWX_ConfigHandler } from "./configHandler";
-import { inraidConfig } from "models/IConfig";
+import { CwxConfigHandler } from "./configHandler";
+import { InraidConfig } from "models/IConfig";
 
 @injectable()
-export class CWX_InraidConfig
+export class CwxInraidConfig
 {
     private tables: IInRaidConfig;
-    private config: inraidConfig;
+    private config: InraidConfig;
     
     constructor(
         @inject("ConfigServer") private configServer: ConfigServer,
-        @inject("CWX_ConfigHandler") private configHandler: CWX_ConfigHandler
+        @inject("CwxConfigHandler") private configHandler: CwxConfigHandler
     )
     {}
 
@@ -24,10 +24,10 @@ export class CWX_InraidConfig
         this.config = this.configHandler.getConfig().inraidConfig;
         this.tables = this.configServer.getConfig(ConfigTypes.IN_RAID);
 
-        this.TurnPVEOff();
+        this.turnPVEOff();
     }
 
-    private TurnPVEOff(): void
+    private turnPVEOff(): void
     {
         if (this.config.turnPVEOff)
         {

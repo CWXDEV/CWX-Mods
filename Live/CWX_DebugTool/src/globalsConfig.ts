@@ -1,18 +1,19 @@
+import { IGlobals } from "@spt-aki/models/eft/common/IGlobals";
 import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
-import { globalsConfig } from "models/IConfig";
+import { GlobalsConfig } from "models/IConfig";
 
 import { inject, injectable } from "tsyringe";
-import { CWX_ConfigHandler } from "./configHandler";
+import { CwxConfigHandler } from "./configHandler";
 
 @injectable()
-export class CWX_GlobalsConfig
+export class CwxGlobalsConfig
 {
-    private tables;
-    private config: globalsConfig;
+    private tables: IGlobals;
+    private config: GlobalsConfig;
     
     constructor(
         @inject("DatabaseServer") private databaseServer: DatabaseServer,
-        @inject("CWX_ConfigHandler") private configHandler: CWX_ConfigHandler
+        @inject("CwxConfigHandler") private configHandler: CwxConfigHandler
     )
     {}
 
@@ -21,12 +22,12 @@ export class CWX_GlobalsConfig
         this.config = this.configHandler.getConfig().globalsConfig;
         this.tables = this.databaseServer.getTables().globals;
 
-        this.NoFallDamage();
-        this.OpenFlea();
-        this.QuickScav();
+        this.noFallDamage();
+        this.openFlea();
+        this.quickScav();
     }
 
-    private NoFallDamage(): void
+    private noFallDamage(): void
     {
         if (this.config.noFallDamage)
         {
@@ -35,7 +36,7 @@ export class CWX_GlobalsConfig
         }
     }
 
-    private OpenFlea(): void 
+    private openFlea(): void 
     {
         if (this.config.openFlea)
         {
@@ -43,7 +44,7 @@ export class CWX_GlobalsConfig
         }
     }
 
-    private QuickScav(): void
+    private quickScav(): void
     {
         if (this.config.quickScav)
         {

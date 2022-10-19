@@ -1,40 +1,49 @@
-export interface IConfig
+export interface ICwxConfig
 {
     showLogs: boolean
-    globalsConfig: globalsConfig
-    ragfairConfig: ragfairConfig
-    locationConfig: locationConfig
-    inraidConfig: inraidConfig
-    itemsConfig: itemsConfig
+    globalsConfig: GlobalsConfig
+    ragfairConfig: RagfairConfig
+    locationConfig: LocationConfig
+    inraidConfig: InraidConfig
+    itemsConfig: ItemsConfig
+    airdropConfig: AirdropConfig
 }
 
-export interface globalsConfig
+export interface GlobalsConfig
 {
     noFallDamage: boolean
     openFlea: boolean
     quickScav: boolean
 }
 
-export interface ragfairConfig
+export interface RagfairConfig
 {
     staticTrader: boolean
     roublesOnly: boolean
     disableBSGBlacklist: boolean
 }
 
-export interface locationConfig
+export interface LocationConfig
 {
     turnLootOff: boolean
 }
 
-export interface inraidConfig
+export interface InraidConfig
 {
     turnPVEOff: boolean
 }
 
-export interface itemsConfig
+export interface ItemsConfig
 {
     changeShrapProps: boolean
     changeMaxAmmoForKS23: boolean
     removeDevFromBlacklist: boolean
+}
+
+export interface AirdropConfig
+{
+    enableAllTheTime: boolean
+    changeFlightHeight: boolean
+    changeStartTime: boolean
+    changePlaneVolume: boolean
 }

@@ -1,17 +1,17 @@
 import { injectable } from "tsyringe";
-import { IConfig } from "../models/IConfig";
+import { ICwxConfig } from "../models/IConfig";
 
 @injectable()
-export class CWX_ConfigHandler
+export class CwxConfigHandler
 {
-    private config: IConfig;
+    private config: ICwxConfig;
 
     constructor()
     {
         this.config = require("../config/config.json");
     }
 
-    public getConfig(): IConfig
+    public getConfig(): ICwxConfig
     {
         return this.config;
     }

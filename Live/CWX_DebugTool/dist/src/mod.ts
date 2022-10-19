@@ -1,37 +1,40 @@
 import { DependencyContainer, Lifecycle } from "tsyringe";
 import { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod";
 
-import { CWX_ConfigHandler } from "./configHandler";
-import { CWX_GlobalsConfig } from "./globalsConfig";
-import { CWX_Logging } from "./logging";
-import { CWX_RagfairConfig } from "./ragfairConfig";
-import { CWX_LocationConfig } from "./locationConfig";
-import { CWX_InraidConfig } from "./inraidConfig";
-import { CWX_ItemsConfig } from "./itemsConfig";
+import { CwxLogging } from "./logging";
+import { CwxConfigHandler } from "./configHandler";
+import { CwxGlobalsConfig } from "./globalsConfig";
+import { CwxRagfairConfig } from "./ragfairConfig";
+import { CwxLocationConfig } from "./locationConfig";
+import { CwxInraidConfig } from "./inraidConfig";
+import { CwxItemsConfig } from "./itemsConfig";
+import { CwxAirdropConfig } from "./airdropConfig";
 
 
 class CWX_DebugTool implements IPostDBLoadMod
 {
     public postDBLoad(container: DependencyContainer): void 
     {
-        container.register<CWX_ConfigHandler>("CWX_ConfigHandler", CWX_ConfigHandler, {lifecycle:Lifecycle.Singleton})
-        container.register<CWX_GlobalsConfig>("CWX_GlobalsConfig", CWX_GlobalsConfig);
-        container.register<CWX_RagfairConfig>("CWX_RagfairConfig", CWX_RagfairConfig);
-        container.register<CWX_LocationConfig>("CWX_LocationConfig", CWX_LocationConfig);
-        container.register<CWX_InraidConfig>("CWX_InraidConfig", CWX_InraidConfig);
-        container.register<CWX_ItemsConfig>("CWX_ItemsConfig", CWX_ItemsConfig);
-        container.register<CWX_Logging>("CWX_Logging", CWX_Logging);
+        container.register<CwxConfigHandler>("CwxConfigHandler", CwxConfigHandler, {lifecycle:Lifecycle.Singleton})
+        container.register<CwxGlobalsConfig>("CwxGlobalsConfig", CwxGlobalsConfig);
+        container.register<CwxRagfairConfig>("CwxRagfairConfig", CwxRagfairConfig);
+        container.register<CwxLocationConfig>("CwxLocationConfig", CwxLocationConfig);
+        container.register<CwxInraidConfig>("CwxInraidConfig", CwxInraidConfig);
+        container.register<CwxItemsConfig>("CwxItemsConfig", CwxItemsConfig);
+        container.register<CwxAirdropConfig>("CwxAirdropConfig", CwxAirdropConfig);
+        container.register<CwxLogging>("CwxLogging", CwxLogging);
         
 
-        container.resolve<CWX_GlobalsConfig>("CWX_GlobalsConfig").applyChanges();
-        container.resolve<CWX_RagfairConfig>("CWX_RagfairConfig").applyChanges();
-        container.resolve<CWX_LocationConfig>("CWX_LocationConfig").applyChanges();
-        container.resolve<CWX_InraidConfig>("CWX_InraidConfig").applyChanges();
-        container.resolve<CWX_ItemsConfig>("CWX_ItemsConfig").applyChanges();
+        container.resolve<CwxGlobalsConfig>("CwxGlobalsConfig").applyChanges();
+        container.resolve<CwxRagfairConfig>("CwxRagfairConfig").applyChanges();
+        container.resolve<CwxLocationConfig>("CwxLocationConfig").applyChanges();
+        container.resolve<CwxInraidConfig>("CwxInraidConfig").applyChanges();
+        container.resolve<CwxItemsConfig>("CwxItemsConfig").applyChanges();
+        container.resolve<CwxAirdropConfig>("CwxAirdropConfig").applyChanges();
         
-        if (container.resolve<CWX_ConfigHandler>("CWX_ConfigHandler").getConfig().showLogs)
+        if (container.resolve<CwxConfigHandler>("CwxConfigHandler").getConfig().showLogs)
         {
-            container.resolve<CWX_Logging>("CWX_Logging").SendLogging();
+            container.resolve<CwxLogging>("CwxLogging").sendLogging();
         }
     }
 }

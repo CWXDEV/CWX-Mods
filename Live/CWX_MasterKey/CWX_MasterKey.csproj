@@ -2,35 +2,34 @@
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-    <RootNamespace>CWX_MasterKey</RootNamespace>
     <AssemblyName>CWX-MasterKey</AssemblyName>
-    <Version>1.3.5</Version>
+    <Version>1.3.7</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="Aki.Common">
-      <HintPath>..\Shared\AKI\Aki.Common.dll</HintPath>
+      <HintPath>..\..\..\Shared\Aki\Aki.Common.dll</HintPath>
     </Reference>
     <Reference Include="Aki.Reflection">
-      <HintPath>..\Shared\AKI\Aki.Reflection.dll</HintPath>
+      <HintPath>..\..\..\Shared\Aki\Aki.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\ALT-Mods\Shared\EFT\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\Shared\EFT\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx">
-      <HintPath>..\Shared\BepInEx\BepInEx.dll</HintPath>
+      <HintPath>..\..\..\Shared\BepInEx\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="Comfort">
-      <HintPath>..\Shared\EFT\Comfort.dll</HintPath>
+      <HintPath>..\..\..\Shared\EFT\Comfort.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\Shared\EFT\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\Shared\EFT\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\Shared\EFT\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\Shared\EFT\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\Shared\EFT\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\..\..\Shared\EFT\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
 

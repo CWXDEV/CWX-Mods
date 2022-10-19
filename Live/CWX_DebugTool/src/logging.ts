@@ -1,47 +1,53 @@
 import { SptLogger } from "@spt-aki/models/spt/logging/SptLogger";
-import { IConfig } from "models/IConfig";
+import { ICwxConfig } from "models/IConfig";
 import { inject, injectable } from "tsyringe";
-import { CWX_ConfigHandler } from "./configHandler";
+import { CwxConfigHandler } from "./configHandler";
 
 @injectable()
-export class CWX_Logging
+export class CwxLogging
 {
-    private config: IConfig;
+    private config: ICwxConfig;
 
     constructor(
         @inject("WinstonLogger") private logger: SptLogger,
-        @inject("CWX_ConfigHandler") private configHandler: CWX_ConfigHandler
+        @inject("CwxConfigHandler") private configHandler: CwxConfigHandler
     )
     {}
 
-    public SendLogging(): void
+    public sendLogging(): void
     {
         this.config = this.configHandler.getConfig();
 
         // globals
-        this.NoFallDamage();
-        this.OpenFlea();
-        this.QuickScav();
+        this.noFallDamage();
+        this.openFlea();
+        this.quickScav();
 
         // ragfair
-        this.StaticTrader();
-        this.RoublesOnly();
-        this.DisableBSGBlacklist();
+        this.staticTrader();
+        this.roublesOnly();
+        this.disableBSGBlacklist();
 
         // location
-        this.TurnLootOff();
+        this.turnLootOff();
 
         // inraid
-        this.TurnPVEOff();
+        this.turnPVEOff();
 
         // items
         this.changeShrapProps();
         this.changeMaxAmmoForKS23();
         this.removeDevFromBlacklist();
 
+        // airdrops
+        this.enableAllTheTime();
+        this.changeFlightHeight();
+        this.changeStartTime();
+        this.changePlaneVolume();
+
     }
     
-    private NoFallDamage(): void
+    private noFallDamage(): void
     {
         if (this.config.globalsConfig.noFallDamage) 
         {
@@ -49,7 +55,7 @@ export class CWX_Logging
         }
     }
 
-    private OpenFlea(): void 
+    private openFlea(): void 
     {
         if (this.config.globalsConfig.openFlea) 
         {
@@ -57,7 +63,7 @@ export class CWX_Logging
         }
     }
 
-    private QuickScav(): void
+    private quickScav(): void
     {
         if (this.config.globalsConfig.quickScav)
         {
@@ -65,7 +71,7 @@ export class CWX_Logging
         }
     }
 
-    private StaticTrader(): void 
+    private staticTrader(): void 
     {
         if (this.config.ragfairConfig.staticTrader)
         {
@@ -73,7 +79,7 @@ export class CWX_Logging
         }
     }
 
-    private RoublesOnly(): void 
+    private roublesOnly(): void 
     {
         if (this.config.ragfairConfig.roublesOnly)
         {
@@ -81,7 +87,7 @@ export class CWX_Logging
         }
     }
 
-    private DisableBSGBlacklist(): void 
+    private disableBSGBlacklist(): void 
     {
         if (this.config.ragfairConfig.disableBSGBlacklist)
         {
@@ -89,7 +95,7 @@ export class CWX_Logging
         }
     }
 
-    private TurnLootOff(): void 
+    private turnLootOff(): void 
     {
         if (this.config.locationConfig.turnLootOff)
         {
@@ -97,7 +103,7 @@ export class CWX_Logging
         }
     }
 
-    private TurnPVEOff(): void
+    private turnPVEOff(): void
     {
         if (this.config.inraidConfig.turnPVEOff)
         {
@@ -129,4 +135,35 @@ export class CWX_Logging
         }
     }
 
+    private enableAllTheTime(): void
+    {
+        if (this.config.airdropConfig.enableAllTheTime)
+        {
+            this.logger.info("Enable Airdrops All The Time Activated");
+        }
+    }
+
+    private changeFlightHeight(): void
+    {
+        if (this.config.airdropConfig.changeFlightHeight)
+        {
+            this.logger.info("Change Flight Height Activated");
+        }
+    }
+
+    private changeStartTime(): void
+    {
+        if (this.config.airdropConfig.changeStartTime)
+        {
+            this.logger.info("Change Start Time Activated");
+        }
+    }
+        
+    private changePlaneVolume(): void
+    {
+        if (this.config.airdropConfig.changePlaneVolume)
+        {
+            this.logger.info("Change Plane Volume Activated");
+        }
+    }
 }

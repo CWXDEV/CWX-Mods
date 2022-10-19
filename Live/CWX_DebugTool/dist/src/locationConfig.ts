@@ -4,18 +4,18 @@ import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes";
 import { ConfigServer } from "@spt-aki/servers/ConfigServer";
 import { ILocationConfig } from "@spt-aki/models/spt/config/ILocationConfig";
 
-import { CWX_ConfigHandler } from "./configHandler";
-import { locationConfig } from "models/IConfig";
+import { CwxConfigHandler } from "./configHandler";
+import { LocationConfig } from "models/IConfig";
 
 @injectable()
-export class CWX_LocationConfig
+export class CwxLocationConfig
 {
     private tables: ILocationConfig;
-    private config: locationConfig;
+    private config: LocationConfig;
     
     constructor(
         @inject("ConfigServer") private configServer: ConfigServer,
-        @inject("CWX_ConfigHandler") private configHandler: CWX_ConfigHandler
+        @inject("CwxConfigHandler") private configHandler: CwxConfigHandler
     )
     {}
 
@@ -24,10 +24,10 @@ export class CWX_LocationConfig
         this.config = this.configHandler.getConfig().locationConfig;
         this.tables = this.configServer.getConfig(ConfigTypes.LOCATION);
 
-        this.TurnLootOff();
+        this.turnLootOff();
     }
 
-    private TurnLootOff(): void
+    private turnLootOff(): void
     {
         if (this.config.turnLootOff)
         {

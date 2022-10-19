@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CWX_WeatherPatch", "CWX_WeatherPatcher\CWX_WeatherPatch.csproj", "{0E6813D8-8989-4643-9D11-138F21CE4963}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CWX_WeatherPatcher", "CWX_WeatherPatcher\CWX_WeatherPatcher.csproj", "{0E6813D8-8989-4643-9D11-138F21CE4963}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CWX_BushWhacker", "CWX_BushWhacker\CWX_BushWhacker.csproj", "{FBA1D35B-1115-4333-8A6F-6F5884BD47D9}"
 EndProject

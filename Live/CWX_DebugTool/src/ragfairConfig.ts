@@ -24,7 +24,7 @@ export class CwxRagfairConfig
         this.config = this.configHandler.getConfig().ragfairConfig;
         this.tables = this.configServer.getConfig(ConfigTypes.RAGFAIR);
 
-        this.staticTrader();
+        //this.staticTrader();
         this.roublesOnly();
         this.disableBSGBlacklist();
     }

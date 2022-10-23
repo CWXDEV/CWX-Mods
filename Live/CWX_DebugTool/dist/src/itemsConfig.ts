@@ -28,8 +28,8 @@ export class CwxItemsConfig
         this.itemConfig = this.configServer.getConfig(ConfigTypes.ITEM);
         this.config = this.configHandler.getConfig().itemsConfig;
 
-        this.changeShrapProps();
-        this.changeMaxAmmoForKS23();
+        //this.changeShrapProps();
+        //this.changeMaxAmmoForKS23();
         this.removeDevFromBlacklist();
     }
     

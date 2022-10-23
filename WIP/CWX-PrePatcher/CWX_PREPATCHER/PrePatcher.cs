@@ -10,21 +10,19 @@ namespace CWX_PrePatcher
 
         public static void Patch(ref AssemblyDefinition assembly)
         {
-            var module = assembly.Modules.FirstOrDefault(x => x.Name == "Assembly-CSharp.dll");
+            var botEnums = assembly.MainModule.GetType("EFT.WildSpawnType");
 
-            var types = module.Types;
-
-            var wildSpawnTypes = types.FirstOrDefault(x => x.Name == "WildSpawnType");
-
-            var wilds = wildSpawnTypes.Fields;
-
-            var botDef = new FieldDefinition("sptUsec",
+            var sptUsec = new FieldDefinition("sptUsec",
                 FieldAttributes.Public | FieldAttributes.Static | FieldAttributes.Literal | FieldAttributes.HasDefault,
-                wilds[1].DeclaringType);
+                botEnums) { Constant = 3 };
 
-            botDef.Constant = 3; // this needs to be set
+            var sptBear = new FieldDefinition("sptBear",
+                    FieldAttributes.Public | FieldAttributes.Static | FieldAttributes.Literal | FieldAttributes.HasDefault,
+                    botEnums)
+                { Constant = 5 };
 
-            wilds.Add(botDef);
+            botEnums.Fields.Add(sptUsec);
+            botEnums.Fields.Add(sptBear);
         }
     }
 }

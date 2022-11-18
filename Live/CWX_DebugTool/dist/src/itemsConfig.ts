@@ -30,7 +30,7 @@ export class CwxItemsConfig
 
         //this.changeShrapProps();
         //this.changeMaxAmmoForKS23();
-        this.removeDevFromBlacklist();
+        //this.removeDevFromBlacklist();
     }
     
 

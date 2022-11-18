@@ -14,7 +14,8 @@ namespace CWX_BushWhacker
         [PatchPostfix]
         public static void PatchPostFix()
         {
-            BushWhacker.DisableBushes();
+            BushWhacker bushWhacker = new BushWhacker();
+            bushWhacker.DisableBushes();
         }
     }
 }

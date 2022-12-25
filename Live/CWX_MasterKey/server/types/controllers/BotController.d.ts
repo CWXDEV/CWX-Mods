@@ -58,6 +58,12 @@ export declare class BotController {
      */
     generate(sessionId: string, info: IGenerateBotsRequestData): IBotBase[];
     /**
+     * Get the difficulty passed in, if its not "asoline", get selected difficulty from config
+     * @param requestedDifficulty
+     * @returns
+     */
+    getPMCDifficulty(requestedDifficulty: string): string;
+    /**
      * Get the max number of bots allowed on a map
      * Looks up location player is entering when getting cap value
      * @returns cap number

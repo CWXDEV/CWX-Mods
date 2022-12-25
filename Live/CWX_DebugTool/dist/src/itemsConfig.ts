@@ -31,6 +31,7 @@ export class CwxItemsConfig
         //this.changeShrapProps();
         //this.changeMaxAmmoForKS23();
         //this.removeDevFromBlacklist();
+        this.inspectAllItems();
     }
     
 
@@ -60,6 +61,20 @@ export class CwxItemsConfig
         if (this.config.removeDevFromBlacklist)
         {
             this.itemConfig.blacklist.splice(this.itemConfig.blacklist.indexOf("58ac60eb86f77401897560ff"));
+        }
+    }
+
+    private inspectAllItems(): void
+    {
+        if (this.config.inspectAllItems)
+        {
+            for (const item in this.tables) 
+            {
+                if (this.tables[item]._props.ExaminedByDefault)
+                {
+                    this.tables[item]._props.ExaminedByDefault = true;
+                }
+            }
         }
     }
 }

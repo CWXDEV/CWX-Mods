@@ -6,7 +6,7 @@
         "quickScav": true
     },
     "ragfairConfig": {
-        "staticTrader": true,
+        "staticTrader": false,
         "roublesOnly": true,
         "disableBSGBlacklist": true
     },
@@ -14,18 +14,19 @@
         "turnLootOff": true
     },
     "inraidConfig": {
-        "turnPVEOff": true
+        "turnPVEOff": true,
+        "extendRaidTimes": true
     },
     "itemsConfig": {
         "changeShrapProps": true,
         "changeMaxAmmoForKS23": true,
-        "removeDevFromBlacklist": true
+        "removeDevFromBlacklist": true,
+        "inspectAllItems": true
     },
     "airdropConfig": {
         "enableAllTheTime": true,
         "changeFlightHeight": true,
         "changeStartTime": true,
         "changePlaneVolume": true
-
     }
 }

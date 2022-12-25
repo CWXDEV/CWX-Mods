@@ -1,3 +1,4 @@
+import { MinMax } from "../models/common/MinMax";
 import { Difficulty, IBotType } from "../models/eft/common/tables/IBotType";
 import { EquipmentFilters, IBotConfig, RandomisationDetails } from "../models/spt/config/IBotConfig";
 import { ILogger } from "../models/spt/utils/ILogger";
@@ -59,6 +60,8 @@ export declare class BotHelper {
      * @returns true if should be a pmc
      */
     shouldBotBePmc(botRole: string): boolean;
+    rollChanceToBePmc(role: string, botConvertMinMax: MinMax): boolean;
+    botRoleIsPmc(botRole: string): boolean;
     /**
      * Get randomisation settings for bot from config/bot.json
      * @param botLevel level of bot
@@ -66,4 +69,20 @@ export declare class BotHelper {
      * @returns RandomisationDetails
      */
     getBotRandomisationDetails(botLevel: number, botEquipConfig: EquipmentFilters): RandomisationDetails;
+    /**
+     * Choose between sptBear and sptUsec at random based on the % defined in botConfig.pmc.isUsec
+     * @returns pmc role
+     */
+    getRandomisedPmcRole(): string;
+    /**
+     * Get the corrisponding side when sptBear or sptUsec is passed in
+     * @param botRole role to get side for
+     * @returns side (usec/bear)
+     */
+    getPmcSideByRole(botRole: string): string;
+    /**
+     * Get a randomised PMC side based on bot config value 'isUsec'
+     * @returns pmc side as string
+     */
+    protected getRandomisedPmcSide(): string;
 }

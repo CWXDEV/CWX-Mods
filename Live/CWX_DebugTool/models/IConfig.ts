@@ -31,6 +31,7 @@ export interface LocationConfig
 export interface InraidConfig
 {
     turnPVEOff: boolean
+    extendRaidTimes: boolean
 }
 
 export interface ItemsConfig
@@ -38,6 +39,7 @@ export interface ItemsConfig
     changeShrapProps: boolean
     changeMaxAmmoForKS23: boolean
     removeDevFromBlacklist: boolean
+    inspectAllItems: boolean
 }
 
 export interface AirdropConfig

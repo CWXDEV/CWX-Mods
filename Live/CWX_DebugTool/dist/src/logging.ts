@@ -33,11 +33,13 @@ export class CwxLogging
 
         // inraid
         this.turnPVEOff();
+        this.extendRaidTimes();
 
         // items
         this.changeShrapProps();
         this.changeMaxAmmoForKS23();
         this.removeDevFromBlacklist();
+        this.inspectAllItems();
 
         // airdrops
         this.enableAllTheTime();
@@ -46,7 +48,7 @@ export class CwxLogging
         this.changePlaneVolume();
 
     }
-    
+        
     private noFallDamage(): void
     {
         if (this.config.globalsConfig.noFallDamage) 
@@ -111,6 +113,14 @@ export class CwxLogging
         }
     }
 
+    private extendRaidTimes() 
+    {
+        if (this.config.inraidConfig.extendRaidTimes)
+        {
+            this.logger.info("Extend Raid Times Activated");
+        }
+    }
+
     private changeShrapProps(): void
     {
         if (this.config.itemsConfig.changeShrapProps)
@@ -132,6 +142,14 @@ export class CwxLogging
         if (this.config.itemsConfig.removeDevFromBlacklist)
         {
             this.logger.info("Remove Dev From Blacklist Activated");
+        }
+    }
+
+    private inspectAllItems(): void
+    {
+        if (this.config.itemsConfig.inspectAllItems)
+        {
+            this.logger.info("Inspect All Items Activated");
         }
     }
 

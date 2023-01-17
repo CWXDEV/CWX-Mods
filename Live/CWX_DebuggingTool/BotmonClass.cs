@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using Comfort.Common;
 using EFT;
-using System.Drawing;
 
 namespace CWX_DebuggingTool
 {
@@ -20,11 +19,7 @@ namespace CWX_DebuggingTool
         private Dictionary<string, List<Player>> _zoneAndPlayers = new Dictionary<string, List<Player>>();
         private List<BotZone> _zones = null;
         private GameWorld _gameWorld = null;
-
-        private float updateTimer;
-        private float updateRate = 5f;
-        private float GuiTimer;
-        private float GuiRate = 5f;
+        private IBotGame _botGame;
 
         private BotmonClass()
         {
@@ -64,30 +59,17 @@ namespace CWX_DebuggingTool
             // Set Basics
             _gameWorld = Singleton<GameWorld>.Instance;
 
-            // get all zones
+            _botGame = Singleton<IBotGame>.Instance;
+
             _zones = LocationScene.GetAllObjects<BotZone>().ToList();
 
-            foreach (var zone in _zones)
+            foreach (var botZone in _zones)
             {
-                // add zones and a new list of players
-                _zoneAndPlayers.Add(zone.NameZone, new List<Player>());
+                _zoneAndPlayers.Add(botZone.name, new List<Player>());
             }
 
             // get player
             _player = _gameWorld.AllPlayers.Find(x => x.IsYourPlayer);
-
-        }
-        public void Update()
-        {
-            if (!Application.isFocused) return;
-
-            updateTimer += Time.deltaTime;
-
-            if (updateTimer < updateRate) return;
-
-            updateTimer = 0;
-
-            if (_gameWorld == null) return;
 
             if (_gameWorld.AllPlayers.Count > 1)
             {
@@ -95,25 +77,24 @@ namespace CWX_DebuggingTool
                 {
                     if (!player.IsYourPlayer)
                     {
-                        var zoneName = player.AIData.BotOwner.BotsGroup.BotZone.NameZone;
+                        var theirZone = player.AIData.BotOwner.BotsGroup.BotZone.NameZone;
 
-                        if (_zoneAndPlayers.ContainsKey(zoneName) && !_zoneAndPlayers[zoneName].Contains(player))
-                        {
-                            _zoneAndPlayers[zoneName].Add(player);
-                        }
+                        _zoneAndPlayers[theirZone].Add(player);
                     }
                 }
             }
+
+            _botGame.BotsController.BotSpawner.OnBotCreated += owner =>
+            {
+                Player player = owner.GetPlayer;
+                var theirZone = player.AIData.BotOwner.BotsGroup.BotZone.NameZone;
+
+                _zoneAndPlayers[theirZone].Add(player);
+            };
         }
 
         public void OnGUI()
         {
-            GuiTimer += Time.deltaTime;
-
-            if (GuiRate < GuiTimer) return;
-
-            GuiTimer = 0;
-
             // set basics on GUI
             if (_textStyle == null)
             {
@@ -133,7 +114,7 @@ namespace CWX_DebuggingTool
 
             if (_zoneAndPlayers != null)
             {
-                var total = 0;
+                _stringBuilder.AppendLine($"Total = {_gameWorld.AllPlayers.Count - 1}");
 
                 foreach (var zone in _zoneAndPlayers)
                 {
@@ -149,13 +130,10 @@ namespace CWX_DebuggingTool
                             return;
                         }
 
-                        total++;
                         var distance = Vector3.Distance(player.Position, _player.Position);
-                        _stringBuilder.AppendLine($"> [{distance:n2}m] [{player.Profile.Info.Settings.Role}] [{player.Profile.Side}] {player.Profile.Nickname}");
+                        _stringBuilder.AppendLine($"> [{distance:n2}m] [{player.Profile.Info.Settings.Role}] [{player.Profile.Side}] [{player.Profile.Info.Settings.BotDifficulty}]{player.Profile.Nickname}");
                     }
                 }
-
-                _stringBuilder.PrependLine($"Total = {total}");
             }
 
             _guiContent.text = _stringBuilder.ToString();

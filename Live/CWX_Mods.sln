@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CWX_DeSharpener", "CWX_DeSh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CWX_MasterKey", "CWX_MasterKey\CWX_MasterKey.csproj", "{40BE277F-55BE-4579-9535-D1F5ED9CC549}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CWX_DebuggingTool", "CWX_DebuggingTool\CWX_DebuggingTool.csproj", "{E439D92F-26FD-42A2-9EA5-38A318EB5403}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{40BE277F-55BE-4579-9535-D1F5ED9CC549}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40BE277F-55BE-4579-9535-D1F5ED9CC549}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40BE277F-55BE-4579-9535-D1F5ED9CC549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E439D92F-26FD-42A2-9EA5-38A318EB5403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E439D92F-26FD-42A2-9EA5-38A318EB5403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E439D92F-26FD-42A2-9EA5-38A318EB5403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E439D92F-26FD-42A2-9EA5-38A318EB5403}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,6 +20,7 @@ namespace CWX_DebuggingTool
         private List<BotZone> _zones = null;
         private GameWorld _gameWorld = null;
         private IBotGame _botGame;
+        private Rect _rect;
 
         private BotmonClass()
         {
@@ -84,6 +85,8 @@ namespace CWX_DebuggingTool
                 }
             }
 
+            _rect = new Rect(0, 60, 0, 0);
+
             _botGame.BotsController.BotSpawner.OnBotCreated += owner =>
             {
                 Player player = owner.GetPlayer;
@@ -110,17 +113,17 @@ namespace CWX_DebuggingTool
                 _guiContent = new GUIContent();
             }
 
-            _stringBuilder.Clear();
+            string content = null;
 
             if (_zoneAndPlayers != null)
             {
-                _stringBuilder.AppendLine($"Total = {_gameWorld.AllPlayers.Count - 1}");
+                content += $"Total = {_gameWorld.AllPlayers.Count - 1}\n";
 
                 foreach (var zone in _zoneAndPlayers)
                 {
                     if (_zoneAndPlayers[zone.Key].Count > 0)
                     {
-                        _stringBuilder.AppendLine($"{zone.Key} = {_zoneAndPlayers[zone.Key].Count}");
+                        content += $"{zone.Key} = {_zoneAndPlayers[zone.Key].Count}\n";
                     }
 
                     foreach (var player in _zoneAndPlayers[zone.Key])
@@ -131,16 +134,20 @@ namespace CWX_DebuggingTool
                         }
 
                         var distance = Vector3.Distance(player.Position, _player.Position);
-                        _stringBuilder.AppendLine($"> [{distance:n2}m] [{player.Profile.Info.Settings.Role}] [{player.Profile.Side}] [{player.Profile.Info.Settings.BotDifficulty}]{player.Profile.Nickname}");
+                        content += $"> [{distance:n2}m] [{player.Profile.Info.Settings.Role}] [{player.Profile.Side}] [{player.Profile.Info.Settings.BotDifficulty}]{player.Profile.Nickname}\n";
                     }
                 }
             }
 
-            _guiContent.text = _stringBuilder.ToString();
+            _guiContent.text = content;
 
             var size = _textStyle.CalcSize(_guiContent);
 
-            GUI.Box(new Rect(Screen.width - size.x - 5f, 60f, size.x, size.y), _guiContent, _textStyle);
+            _rect.x = Screen.width - size.x - 5f;
+            _rect.width = size.x;
+            _rect.height = size.y;
+
+            GUI.Box(_rect, _guiContent, _textStyle);
         }
     }
 }

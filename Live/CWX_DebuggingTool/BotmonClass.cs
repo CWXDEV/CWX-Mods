@@ -89,11 +89,6 @@ namespace CWX_DebuggingTool
 
             if (_gameWorld == null) return;
 
-            foreach (var z in _zoneAndPlayers)
-            {
-                z.Value.Clear();
-            }
-
             if (_gameWorld.AllPlayers.Count > 1)
             {
                 foreach (var player in _gameWorld.AllPlayers)
@@ -106,17 +101,6 @@ namespace CWX_DebuggingTool
                         {
                             _zoneAndPlayers[zoneName].Add(player);
                         }
-                    }
-                }
-            }
-
-            foreach (var pair in _zoneAndPlayers)
-            {
-                foreach (var person in pair.Value)
-                {
-                    if (!person.HealthController.IsAlive)
-                    {
-                        pair.Value.Remove(person);
                     }
                 }
             }
@@ -160,6 +144,11 @@ namespace CWX_DebuggingTool
 
                     foreach (var player in _zoneAndPlayers[zone.Key])
                     {
+                        if (!player.HealthController.IsAlive)
+                        {
+                            return;
+                        }
+
                         total++;
                         var distance = Vector3.Distance(player.Position, _player.Position);
                         _stringBuilder.AppendLine($"> [{distance:n2}m] [{player.Profile.Info.Settings.Role}] [{player.Profile.Side}] {player.Profile.Nickname}");

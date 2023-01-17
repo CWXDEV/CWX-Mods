@@ -21,6 +21,10 @@ namespace CWX_DebuggingTool
         private GameWorld _gameWorld = null;
         private IBotGame _botGame;
         private Rect _rect;
+        private String _content = "";
+        private Vector2 _guiSize;
+        private float _distance;
+        private float _timer;
 
         private BotmonClass()
         {
@@ -112,40 +116,37 @@ namespace CWX_DebuggingTool
             {
                 _guiContent = new GUIContent();
             }
-
-            string content = null;
+            
+            _content = string.Empty;
 
             if (_zoneAndPlayers != null)
             {
-                content += $"Total = {_gameWorld.AllPlayers.Count - 1}\n";
+                _content += $"Total = {_gameWorld.AllPlayers.Count - 1}\n";
 
                 foreach (var zone in _zoneAndPlayers)
                 {
-                    if (_zoneAndPlayers[zone.Key].Count > 0)
-                    {
-                        content += $"{zone.Key} = {_zoneAndPlayers[zone.Key].Count}\n";
-                    }
+                    _content += $"{zone.Key} = {_zoneAndPlayers[zone.Key].FindAll(x => x.HealthController.IsAlive).Count}\n";
 
                     foreach (var player in _zoneAndPlayers[zone.Key])
                     {
                         if (!player.HealthController.IsAlive)
                         {
-                            return;
+                            continue;
                         }
 
-                        var distance = Vector3.Distance(player.Position, _player.Position);
-                        content += $"> [{distance:n2}m] [{player.Profile.Info.Settings.Role}] [{player.Profile.Side}] [{player.Profile.Info.Settings.BotDifficulty}]{player.Profile.Nickname}\n";
+                        _distance = Vector3.Distance(player.Position, _player.Position);
+                        _content += $"> [{_distance:n2}m] [{player.Profile.Info.Settings.Role}] [{player.Profile.Side}] [{player.Profile.Info.Settings.BotDifficulty}] {player.Profile.Nickname}\n";
                     }
                 }
             }
 
-            _guiContent.text = content;
+            _guiContent.text = _content;
 
-            var size = _textStyle.CalcSize(_guiContent);
+            _guiSize = _textStyle.CalcSize(_guiContent);
 
-            _rect.x = Screen.width - size.x - 5f;
-            _rect.width = size.x;
-            _rect.height = size.y;
+            _rect.x = Screen.width - _guiSize.x - 5f;
+            _rect.width = _guiSize.x;
+            _rect.height = _guiSize.y;
 
             GUI.Box(_rect, _guiContent, _textStyle);
         }

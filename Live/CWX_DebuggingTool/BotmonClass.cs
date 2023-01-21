@@ -11,25 +11,26 @@ namespace CWX_DebuggingTool
 {
     public sealed class BotmonClass : MonoBehaviour, IDisposable
     {
-        private static BotmonClass _instance = null;
-        private GUIContent _guiContent = null;
+        private static BotmonClass _instance;
+
+        private GUIContent _guiContent;
         private GUIStyle _textStyle;
-        private StringBuilder _stringBuilder = new StringBuilder(200);
         private Player _player;
         private Dictionary<string, List<Player>> _zoneAndPlayers = new Dictionary<string, List<Player>>();
-        private List<BotZone> _zones = null;
-        private GameWorld _gameWorld = null;
+        private List<BotZone> _zones;
+        private GameWorld _gameWorld;
         private IBotGame _botGame;
         private Rect _rect;
         private String _content = "";
         private Vector2 _guiSize;
         private float _distance;
-        private float _timer;
 
         private BotmonClass()
         {
 
         }
+
+        public int Mode { get; set; }
 
         public static BotmonClass Instance
         {
@@ -61,21 +62,28 @@ namespace CWX_DebuggingTool
 
         public void Awake()
         {
-            // Set Basics
+            // Get GameWorld Instance
             _gameWorld = Singleton<GameWorld>.Instance;
 
+            // Get BotGame Instance
             _botGame = Singleton<IBotGame>.Instance;
 
+            // Get Player from GameWorld
+            _player = _gameWorld.MainPlayer;
+
+            // Make new rect to use for GUI
+            _rect = new Rect(0, 60, 0, 0);
+
+            // Get all BotZones
             _zones = LocationScene.GetAllObjects<BotZone>().ToList();
 
+            // Set up the Dictionary
             foreach (var botZone in _zones)
             {
                 _zoneAndPlayers.Add(botZone.name, new List<Player>());
             }
 
-            // get player
-            _player = _gameWorld.AllPlayers.Find(x => x.IsYourPlayer);
-
+            // Add existing Bots to list
             if (_gameWorld.AllPlayers.Count > 1)
             {
                 foreach (var player in _gameWorld.AllPlayers)
@@ -89,8 +97,7 @@ namespace CWX_DebuggingTool
                 }
             }
 
-            _rect = new Rect(0, 60, 0, 0);
-
+            // Sub to Event to get and add Bot when they spawn
             _botGame.BotsController.BotSpawner.OnBotCreated += owner =>
             {
                 Player player = owner.GetPlayer;
@@ -116,26 +123,35 @@ namespace CWX_DebuggingTool
             {
                 _guiContent = new GUIContent();
             }
-            
-            _content = string.Empty;
 
-            if (_zoneAndPlayers != null)
+            // If Mode Greater than or equal to 1 show total
+            if (Mode >= 1)
             {
+                _content = string.Empty;
                 _content += $"Total = {_gameWorld.AllPlayers.Count - 1}\n";
+            }
 
-                foreach (var zone in _zoneAndPlayers)
+            // If Mode Greater than or equal to 2 show total for each zone
+            if (Mode >= 2)
+            {
+                if (_zoneAndPlayers != null)
                 {
-                    _content += $"{zone.Key} = {_zoneAndPlayers[zone.Key].FindAll(x => x.HealthController.IsAlive).Count}\n";
-
-                    foreach (var player in _zoneAndPlayers[zone.Key])
+                    foreach (var zone in _zoneAndPlayers)
                     {
-                        if (!player.HealthController.IsAlive)
+                        if (_zoneAndPlayers[zone.Key].FindAll(x => x.HealthController.IsAlive).Count > 0)
                         {
-                            continue;
-                        }
+                            _content += $"{zone.Key} = {_zoneAndPlayers[zone.Key].FindAll(x => x.HealthController.IsAlive).Count}\n";
 
-                        _distance = Vector3.Distance(player.Position, _player.Position);
-                        _content += $"> [{_distance:n2}m] [{player.Profile.Info.Settings.Role}] [{player.Profile.Side}] [{player.Profile.Info.Settings.BotDifficulty}] {player.Profile.Nickname}\n";
+                            // If Mode Greater than or equal to 3 show Bots individually also
+                            if (Mode >= 3)
+                            {
+                                foreach (var player in _zoneAndPlayers[zone.Key].Where(player => player.HealthController.IsAlive))
+                                {
+                                    _distance = Vector3.Distance(player.Position, _player.Position);
+                                    _content += $"> [{_distance:n2}m] [{player.Profile.Info.Settings.Role}] [{player.Profile.Side}] [{player.Profile.Info.Settings.BotDifficulty}] {player.Profile.Nickname}\n";
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -1,11 +1,10 @@
-﻿using EFT.UI;
+﻿using Comfort.Common;
+using EFT;
+using EFT.UI;
 using System;
-using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Comfort.Common;
-using EFT;
+using UnityEngine;
 
 namespace CWX_DebuggingTool
 {

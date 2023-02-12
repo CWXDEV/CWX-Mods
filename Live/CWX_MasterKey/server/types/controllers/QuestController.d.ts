@@ -95,13 +95,20 @@ export declare class QuestController {
      */
     completeQuest(pmcData: IPmcData, body: ICompleteQuestRequestData, sessionID: string): IItemEventRouterResponse;
     /**
-     * Send a popup to player on completion of a quest
+     * Send a popup to player on successful completion of a quest
      * @param sessionID session id
-     * @param pmcData player profile
-     * @param completedQuestId completed quest id
-     * @param questRewards rewards given to player
+     * @param pmcData Player profile
+     * @param completedQuestId Completed quest id
+     * @param questRewards Rewards given to player
      */
-    protected sendDialogMessageOnQuestComplete(sessionID: string, pmcData: IPmcData, completedQuestId: string, questRewards: Reward[]): void;
+    protected sendSuccessDialogMessageOnQuestComplete(sessionID: string, pmcData: IPmcData, completedQuestId: string, questRewards: Reward[]): void;
+    /**
+     * Look for newly available quests after completing a quest with a requirement to wait x minutes (time-locked) before being available and add data to profile
+     * @param pmcData Player profile to update
+     * @param quests Quests to look for wait conditions in
+     * @param completedQuestId Quest just completed
+     */
+    protected addTimeLockedQuestsToProfile(pmcData: IPmcData, quests: IQuest[], completedQuestId: string): void;
     /**
      * Returns a list of quests that should be failed when a quest is completed
      * @param completedQuestId quest completed id

@@ -6,40 +6,34 @@
 
   <ItemGroup>
     <Reference Include="Aki.Common">
-      <HintPath>..\..\..\Shared\Aki\Aki.Common.dll</HintPath>
+      <HintPath>..\..\..\Shared\Aki.Common.dll</HintPath>
     </Reference>
     <Reference Include="Aki.Reflection">
-      <HintPath>..\..\..\Shared\Aki\Aki.Reflection.dll</HintPath>
+      <HintPath>..\..\..\Shared\Aki.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\Shared\EFT\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\Shared\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx">
-      <HintPath>..\..\..\Shared\BepInEx\BepInEx.dll</HintPath>
+      <HintPath>..\..\..\Shared\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="bsg.console.core">
-      <HintPath>..\..\..\Shared\EFT\bsg.console.core.dll</HintPath>
+      <HintPath>..\..\..\Shared\bsg.console.core.dll</HintPath>
     </Reference>
     <Reference Include="Comfort">
-      <HintPath>..\..\..\Shared\EFT\Comfort.dll</HintPath>
-    </Reference>
-    <Reference Include="ConfigurationManager">
-      <HintPath>..\..\..\Shared\BepInEx\ConfigurationManager.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>..\..\..\Shared\BepInEx\Mono.Cecil.dll</HintPath>
+      <HintPath>..\..\..\Shared\Comfort.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\Shared\EFT\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\Shared\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\Shared\EFT\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\..\..\Shared\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\..\..\Shared\EFT\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>..\..\..\Shared\UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\..\..\Shared\EFT\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath>..\..\..\Shared\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -5,6 +5,9 @@ bin/
 obj/
 *.editorconfig
 
+## Rider
+.idea
+
 ## visual studio
 .vs
 .idea

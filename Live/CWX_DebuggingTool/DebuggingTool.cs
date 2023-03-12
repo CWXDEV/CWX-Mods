@@ -6,7 +6,7 @@ using EFT.UI;
 
 namespace CWX_DebuggingTool
 {
-    [BepInPlugin("com.cwx.debuggingtool", "cwx-debuggingtool", "1.0.0")]
+    [BepInPlugin("com.cwx.debuggingtool", "cwx-debuggingtool", "1.0.1")]
     public class DebuggingTool : BaseUnityPlugin
     {
         private void Awake()

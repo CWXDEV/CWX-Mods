@@ -2,7 +2,7 @@
 
 namespace CWX_DeSharpener
 {
-    [BepInPlugin("com.CWX.DeSharpener", "CWX-DeSharpener", "1.5.0")]
+    [BepInPlugin("com.CWX.DeSharpener", "CWX-DeSharpener", "1.5.1")]
     public class DeSharpener : BaseUnityPlugin
     {
         private void Awake()

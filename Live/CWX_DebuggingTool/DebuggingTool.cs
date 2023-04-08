@@ -51,7 +51,7 @@ namespace CWX_DebuggingTool
         {
             var gameWorld = Singleton<GameWorld>.Instance;
 
-            var btmInstance = gameWorld.GetOrAddComponent<BotmonClass>();
+            var btmInstance = gameWorld.gameObject.AddComponent<BotmonClass>();
 
             btmInstance.Mode = option;
         }

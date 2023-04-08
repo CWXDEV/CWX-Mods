@@ -11,11 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CWX_DeSharpener", "CWX_DeSh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CWX_MasterKey", "CWX_MasterKey\CWX_MasterKey.csproj", "{40BE277F-55BE-4579-9535-D1F5ED9CC549}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CWX_DebuggingTool", "CWX_DebuggingTool\CWX_DebuggingTool.csproj", "{E439D92F-26FD-42A2-9EA5-38A318EB5403}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CWX_DebuggingTool", "CWX_DebuggingTool\CWX_DebuggingTool.csproj", "{E439D92F-26FD-42A2-9EA5-38A318EB5403}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CWX_ColourAdderPrePatch", "CWX_ColourAdderPrePatch\CWX_ColourAdderPrePatch.csproj", "{B0AE824D-7308-47DD-B0BF-08D48B33CBD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CWX_ColourAdderPrePatch", "CWX_ColourAdderPrePatch\CWX_ColourAdderPrePatch.csproj", "{B0AE824D-7308-47DD-B0BF-08D48B33CBD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CWX_ColourAdderPatcher", "CWX_ColourAdderPatcher\CWX_ColourAdderPatcher.csproj", "{6D696C6A-011B-4D53-8D97-D62105B20E0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CWX_ColourAdderPatcher", "CWX_ColourAdderPatcher\CWX_ColourAdderPatcher.csproj", "{6D696C6A-011B-4D53-8D97-D62105B20E0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CWX_AlarmChanger", "CWX_AlarmChanger\CWX_AlarmChanger.csproj", "{518D3743-AE98-41CD-8A6A-7B537C3FC293}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{6D696C6A-011B-4D53-8D97-D62105B20E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D696C6A-011B-4D53-8D97-D62105B20E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D696C6A-011B-4D53-8D97-D62105B20E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{518D3743-AE98-41CD-8A6A-7B537C3FC293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{518D3743-AE98-41CD-8A6A-7B537C3FC293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{518D3743-AE98-41CD-8A6A-7B537C3FC293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{518D3743-AE98-41CD-8A6A-7B537C3FC293}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@
     "version": "1.4.3",
     "license": "NCSA",
     "main": "src/mod.js",
-    "akiVersion": "3.5.2",
+    "akiVersion": "3.5.5",
     "scripts": {
         "setup": "npm i",
         "build": "node ./packageBuild.ts"

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CWX_BushWhacker
 {
-    [BepInPlugin("com.cwx.bushwhacker", "cwx-bushwhacker", "1.3.1")]
+    [BepInPlugin("com.cwx.bushwhacker", "cwx-bushwhacker", "1.3.2")]
     public class BushWhacker : BaseUnityPlugin
     {
         public void Start()

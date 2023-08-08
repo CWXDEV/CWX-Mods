@@ -32,7 +32,8 @@ namespace CWX_AlarmChanger
 
         private void LoadAudioFilePaths()
         {
-            var AudioFiles = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "/BepInEx/plugins/CWX_AlarmChanger/Sounds/");
+            var AudioFiles = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "/BepInEx/plugins/CWX/Sounds/");
+
             foreach (var File in AudioFiles)
             {
                 LoadAudioClip(File);

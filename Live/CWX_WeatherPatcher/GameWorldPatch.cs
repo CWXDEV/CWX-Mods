@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using Aki.Reflection.Patching;
 using EFT;
-using UnityEngine;
 
 namespace CWX_WeatherPatcher
 {
@@ -15,7 +14,6 @@ namespace CWX_WeatherPatcher
         [PatchPostfix]
         private static void PatchPostFix()
         {
-            Debug.LogError("logging for gameworld patch");
             WeatherPatcher.Fix();
         }
     }

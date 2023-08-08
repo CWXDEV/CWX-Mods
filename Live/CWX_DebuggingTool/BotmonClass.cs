@@ -86,9 +86,9 @@ namespace CWX_DebuggingTool
             }
 
             // Add existing Bots to list
-            if (_gameWorld.AllPlayers.Count > 1)
+            if (_gameWorld.RegisteredPlayers.Count > 1)
             {
-                foreach (var player in _gameWorld.AllPlayers)
+                foreach (var player in _gameWorld.AllAlivePlayersList)
                 {
                     if (player.IsYourPlayer) continue;
 
@@ -140,7 +140,7 @@ namespace CWX_DebuggingTool
             if (Mode >= 1)
             {
                 _content = string.Empty;
-                _content += $"Total = {_gameWorld.AllPlayers.Count - 1}\n";
+                //_content += $"Total = {_gameWorld.AllPlayers.Count - 1}\n";
             }
 
             // If Mode Greater than or equal to 2 show total for each zone

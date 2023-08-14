@@ -2,7 +2,6 @@
 using System.IO;
 using System.Threading.Tasks;
 using System;
-using EFT.Interactive;
 using UnityEngine.Networking;
 using UnityEngine;
 using System.Linq;

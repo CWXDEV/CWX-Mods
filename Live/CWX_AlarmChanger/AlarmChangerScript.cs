@@ -12,9 +12,10 @@ namespace CWX_AlarmChanger
     {
         private List<AudioClip> _clips = new List<AudioClip>();
 
-        public void Start()
+        public void Init()
         {
             LoadAudioFilePaths();
+            SetSounds();
         }
 
         public void SetSounds()

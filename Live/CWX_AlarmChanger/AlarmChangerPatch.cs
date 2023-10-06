@@ -17,10 +17,9 @@ namespace CWX_AlarmChanger
         {
             var gameWorld = Singleton<GameWorld>.Instance;
 
-            if (gameWorld != null && gameWorld.MainPlayer.Location.ToLower() == "rezervbase")
-            {
-                AlarmChanger.CWX_Component.SetSounds();
-            }
+            if (gameWorld == null || gameWorld.MainPlayer.Location.ToLower() != "rezervbase") return;
+
+            AlarmChanger.CWX_Component.Init();
         }
     }
 }

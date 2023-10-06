@@ -1,47 +1,45 @@
-﻿using Aki.Reflection.Patching;
+﻿using System;
+using Aki.Reflection.Patching;
 using EFT.InventoryLogic;
 using EFT.UI.DragAndDrop;
 using System.Reflection;
+using EFT.UI;
 using UnityEngine;
+using Newtonsoft.Json;
 
-namespace test_layout
+namespace Test_layout
 {
-    public class test_layoutPatch : ModulePatch
+    public class Test_layoutPatch : ModulePatch
     {
         protected override MethodBase GetTargetMethod()
         {
-            Debug.LogError("fucker");
-            var methods = getMethods();
-
-            foreach (var method in methods)
-            {
-                Debug.LogError(method.Name);
-            }
-
-            return typeof(ContainedGridsView).GetMethod("CreateGrids", BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance | BindingFlags.NonPublic);
+            return typeof(ContainedGridsView).GetMethod("CreateGrids", BindingFlags.Public | BindingFlags.Static);
         }
 
-        public MethodInfo[] getMethods()
-        {
-            return typeof(ContainedGridsView).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance | BindingFlags.NonPublic);
-        }
-
-        [PatchPrefix]
-        private static bool PatchPrefix(ref ContainedGridsView __result, Item item, ContainedGridsView containedGridsTemplate)
+        [PatchPostfix]
+        private static bool PatchPostfix(ref ContainedGridsView __result, Item item, ContainedGridsView containedGridsTemplate)
         {
             Debug.LogError(item.TemplateId);
 
-            if (item.TemplateId == "5648a69d4bdc2ded0b8b457b")
-            {
-                foreach (var grid in containedGridsTemplate.GridViews)
-                {
-                    Debug.LogError(grid.transform.ToString());
-                }
+            if (item.TemplateId != "5648a69d4bdc2ded0b8b457b") return true;
+            
+            Debug.LogError("Test!");
 
-                __result = Object.Instantiate(containedGridsTemplate);
-                return false;
+            foreach (var gridView in __result.GridViews)
+            {
+                Debug.LogError(JsonConvert.SerializeObject(gridView));
             }
 
+            var test = new GridView();
+            test.enabled = true;
+            test.Grid = new GClass2317("1", 1, 2, false, false, Array.Empty<ItemFilter>(),
+                new LootItemClass("test", new GClass2348()));
+            test.IsMagnified = false;
+            test.name = "GridView 1";
+            test.tag = "Untagged";
+
+            __result.GridViews = new[] { test };
+            
             return true;
         }
     }

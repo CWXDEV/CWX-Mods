@@ -1,13 +1,13 @@
 ﻿using BepInEx;
 
-namespace test_layout
+namespace Test_layout
 {
     [BepInPlugin("com.test_layout", "test_layout", "1.0.0")]
-    public class test_layout : BaseUnityPlugin
+    public class Test_layout : BaseUnityPlugin
     {
         private void Awake()
         {
-            new test_layoutPatch().Enable();
+            new Test_layoutPatch().Enable();
         }
     }
 }

@@ -18,6 +18,12 @@
     <Reference Include="Comfort">
       <HintPath>..\..\..\Shared\Comfort.dll</HintPath>
     </Reference>
+    <Reference Include="ItemComponent.Types">
+      <HintPath>..\..\..\Shared\ItemComponent.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\Shared\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\Shared\UnityEngine.dll</HintPath>
     </Reference>

@@ -1,16 +1,28 @@
 # All in One CWX-Mods
-## currently for EFT - SPT-AKI. - 3.2.3
+## currently for EFT - SPT-AKI. - 3.6.1
 
 ### Old
-- CWX-AirDrop
+- CWX-AirDrop - Client Mod
+- CWX-DebugTool - Server Mod
+- CWX-PrePatcher - Client Mod
 
 ### Live
-- CWX-BushWhacker
-- CWX-DeSharpener
-- CWX-MasterKey
-- CWX-VoiceAdder
-- CWX-WeatherPatcher
+- CWX-AlarmChanger - Client Mod
+- CWX-BushWhacker - Client Mod
+- CWX-DebuggingTool - Client Mod
+- CWX-DeSharpener - Client Mod
+- CWX-GrassCutter - Client Mod
+- CWX-LockPicking - Client Mod
+- CWX-MasterKey - Client Mod
+- CWX-VoiceAdder - Client Mod
+- CWX-WeatherPatcher - Client Mod
+- test-layout - Client Mod
+- TraderScrolling - Client Mod
 
 ### Work in Progress (WIP)
-- CWX-BackpackReload
-- CWX-BUNDLEMAKER
+- CWX-ColourAdderPatcher - Client Mod
+- CWX-ColourAdderPrePatch - Client Mod
+- CWX-BackpackReload - Client Mod
+- CWX-BUNDLEMAKER - Client Mod
+- CWX-CustomMap - Client Mod & Server Mod
+- CWX-HalloweenEvent - Client Mod & Server Mod

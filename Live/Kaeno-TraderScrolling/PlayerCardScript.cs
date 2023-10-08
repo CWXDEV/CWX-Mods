@@ -1,9 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using BepInEx.Logging;
-using EFT.UI;
-using EFT.UI.Ragfair;
 
 namespace TraderScrolling
 {
@@ -39,10 +36,9 @@ namespace TraderScrolling
             tileRect.sizeDelta = new Vector2(500f, 0);
 
 
+            // Change Colour alpha to max for background
             var background = tile.FirstOrDefault(x => x.name == "Background");
             background.color = new Color(0, 0, 0, 1);  
-            // Change Colour alpha to max for background
-
         }
     }
 }

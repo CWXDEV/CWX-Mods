@@ -1,4 +1,10 @@
-﻿namespace TraderScrolling
+﻿using System.Reflection;
+using Aki.Reflection.Patching;
+using Aki.Reflection.Utils;
+using EFT.UI;
+using UnityEngine;
+
+namespace TraderScrolling
 {
     public class TraderScrollingPatch : ModulePatch
     {
@@ -10,14 +16,15 @@
         [PatchPostfix]
         public static void PatchPostFix()
         {
-            var go = GameObject.Find("Menu UI");
-            var check = go.GetComponentInChildren<TraderScrollingScript>();
+            var gameObject = GameObject.Find("Menu UI");
+            var check = gameObject.GetComponentInChildren<TraderScrollingScript>();
+            
             if (check != null)
             {
                 return;
             }
 
-            go.AddComponent<TraderScrollingScript>();
+            gameObject.AddComponent<TraderScrollingScript>();
         }
     }
 }

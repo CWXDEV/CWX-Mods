@@ -23,6 +23,12 @@
       <Reference Include="Newtonsoft.Json">
         <HintPath>..\..\..\Shared\Newtonsoft.Json.dll</HintPath>
       </Reference>
+      <Reference Include="UnityEngine">
+        <HintPath>..\..\..\Shared\UnityEngine.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.AssetBundleModule">
+        <HintPath>..\..\..\Shared\UnityEngine.AssetBundleModule.dll</HintPath>
+      </Reference>
       <Reference Include="UnityEngine.CoreModule">
         <HintPath>..\..\..\Shared\UnityEngine.CoreModule.dll</HintPath>
       </Reference>

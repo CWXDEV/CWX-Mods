@@ -17,11 +17,11 @@ namespace Test_layout
         }
 
         [PatchPostfix]
-        private static bool PatchPostfix(ref ContainedGridsView __result, Item item, ContainedGridsView containedGridsTemplate)
+        private static void PatchPostfix(ref ContainedGridsView __result, Item item, ContainedGridsView containedGridsTemplate)
         {
             Debug.LogError(item.TemplateId);
 
-            if (item.TemplateId != "5648a69d4bdc2ded0b8b457b") return true;
+            if (item.TemplateId != "5648a69d4bdc2ded0b8b457b") return;
             
             Debug.LogError("Test!");
 
@@ -39,8 +39,6 @@ namespace Test_layout
             test.tag = "Untagged";
 
             __result.GridViews = new[] { test };
-            
-            return true;
         }
     }
 }

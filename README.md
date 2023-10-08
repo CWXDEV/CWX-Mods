@@ -17,7 +17,7 @@
 - CWX-VoiceAdder - Client Mod
 - CWX-WeatherPatcher - Client Mod
 - test-layout - Client Mod
-- TraderScrolling - Client Mod
+- Kaeno-TraderScrolling - Client Mod
 
 ### Work in Progress (WIP)
 - CWX-ColourAdderPatcher - Client Mod

@@ -42,15 +42,20 @@ namespace CWX_DebuggingTool
             }
         }
 
-        public static void DisableBotMonitor()
+        private static void DisableBotMonitor()
         {
             BotmonClass.Instance.Dispose();
         }
 
-        public static void EnableBotMonitor(int option)
+        private static void EnableBotMonitor(int option)
         {
             var gameWorld = Singleton<GameWorld>.Instance;
 
+            var checkExists = gameWorld.gameObject.GetComponentInChildren<BotmonClass>();
+            
+            if (checkExists != null)
+                Destroy(checkExists);
+            
             var btmInstance = gameWorld.gameObject.AddComponent<BotmonClass>();
 
             btmInstance.Mode = option;

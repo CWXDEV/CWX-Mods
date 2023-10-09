@@ -29,7 +29,6 @@ namespace CWX_DebuggingTool
 
         private BotmonClass()
         {
-
         }
 
         public int Mode { get; set; }
@@ -59,7 +58,6 @@ namespace CWX_DebuggingTool
 
         ~BotmonClass()
         {
-            ConsoleScreen.Log("BotMonitor Disabled on game end");
         }
 
         public void Awake()
@@ -140,7 +138,7 @@ namespace CWX_DebuggingTool
             if (Mode >= 1)
             {
                 _content = string.Empty;
-                //_content += $"Total = {_gameWorld.AllPlayers.Count - 1}\n";
+                _content += $"Total = {_gameWorld.AllAlivePlayersList.Count - 1}\n";
             }
 
             // If Mode Greater than or equal to 2 show total for each zone
@@ -148,14 +146,14 @@ namespace CWX_DebuggingTool
             {
                 foreach (var zone in _zoneAndPlayers)
                 {
-                    if (_zoneAndPlayers[zone.Key].FindAll(x => x.HealthController.IsAlive).Count <= 0) continue;
+                    if (_zoneAndPlayers[zone.Key].FindAll(x => x != null && x.HealthController != null && x.HealthController.IsAlive).Count <= 0) continue;
 
-                    _content += $"{zone.Key} = {_zoneAndPlayers[zone.Key].FindAll(x => x.HealthController.IsAlive).Count}\n";
+                    _content += $"{zone.Key} = {_zoneAndPlayers[zone.Key].FindAll(x => x != null && x.HealthController != null && x.HealthController.IsAlive).Count}\n";
 
                     // If Mode Greater than or equal to 3 show Bots individually also
                     if (Mode < 3) continue;
 
-                    foreach (var player in _zoneAndPlayers[zone.Key].Where(player => player.HealthController.IsAlive))
+                    foreach (var player in _zoneAndPlayers[zone.Key].Where(player => player != null && player.HealthController != null && player.HealthController.IsAlive))
                     {
                         _distance = Vector3.Distance(player.Position, _player.Position);
                         _content += $"> [{_distance:n2}m] [{_playerRoleAndDiff.First(x => x.Key == player.ProfileId).Value.Role}] " +
@@ -163,7 +161,7 @@ namespace CWX_DebuggingTool
                     }
                 }
             }
-
+            
             _guiContent.text = _content;
 
             _guiSize = _textStyle.CalcSize(_guiContent);

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CWX_LockPicking", "CWX_Lock
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaeno-TraderScrolling", "Kaeno-TraderScrolling\Kaeno-TraderScrolling.csproj", "{01BF7708-EC1F-4E2A-A788-084AE1C9E467}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chocster-mod", "Chocster-mod\Chocster-mod.csproj", "{1EE1391B-8D03-43C1-BB65-8B631122D54C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{01BF7708-EC1F-4E2A-A788-084AE1C9E467}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01BF7708-EC1F-4E2A-A788-084AE1C9E467}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01BF7708-EC1F-4E2A-A788-084AE1C9E467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EE1391B-8D03-43C1-BB65-8B631122D54C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EE1391B-8D03-43C1-BB65-8B631122D54C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EE1391B-8D03-43C1-BB65-8B631122D54C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EE1391B-8D03-43C1-BB65-8B631122D54C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

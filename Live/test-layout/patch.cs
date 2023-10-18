@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using Aki.Reflection.Patching;
 using EFT.InventoryLogic;
 using EFT.UI.DragAndDrop;
 using System.Reflection;
+using Aki.Reflection.Utils;
 using EFT.UI;
 using UnityEngine;
 using Newtonsoft.Json;
@@ -13,7 +15,31 @@ namespace Test_layout
     {
         protected override MethodBase GetTargetMethod()
         {
-            return typeof(ContainedGridsView).GetMethod("CreateGrids", BindingFlags.Public | BindingFlags.Static);
+            var typesToCheck = PatchConstants.EftTypes;
+            var afterChecks = typesToCheck.First(IsTargetType);
+            
+            Debug.LogError($"AfterChecks: {afterChecks.Name}");
+            
+            var methodToCheck = afterChecks.GetMethod("OnModChanged", PatchConstants.PublicFlags);
+            
+            Debug.LogError($"methodName: {methodToCheck.Name}");
+            
+            return methodToCheck;
+        }
+
+        private bool IsTargetType(Type type)
+        {
+            Debug.LogError($"type name: {type.Name}");
+            var fieldsToCheck = type.GetFields();
+
+            if (fieldsToCheck.Length == 4 && fieldsToCheck.Any(x => x.Name == "item_0") &&
+                fieldsToCheck.Any(x => x.Name == "slot_0") && fieldsToCheck.Any(x => x.Name == "callback_0"))
+            {
+                Debug.LogError("type found mother fucker");
+                return true;
+            }
+
+            return false;
         }
 
         [PatchPostfix]

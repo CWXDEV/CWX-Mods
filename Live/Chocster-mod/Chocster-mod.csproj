@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net472</TargetFramework>
+        <RootNamespace>Chocster_mod</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="0Harmony">
+        <HintPath>..\..\..\Shared\0Harmony.dll</HintPath>
+      </Reference>
+      <Reference Include="Aki.Common">
+        <HintPath>..\..\..\Shared\Aki.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="Aki.Reflection">
+        <HintPath>..\..\..\Shared\Aki.Reflection.dll</HintPath>
+      </Reference>
+      <Reference Include="Assembly-CSharp">
+        <HintPath>..\..\..\Shared\Assembly-CSharp.dll</HintPath>
+      </Reference>
+      <Reference Include="BepInEx">
+        <HintPath>..\..\..\Shared\BepInEx.dll</HintPath>
+      </Reference>
+      <Reference Include="Comfort">
+        <HintPath>..\..\..\Shared\Comfort.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine">
+        <HintPath>..\..\..\Shared\UnityEngine.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.CoreModule">
+        <HintPath>..\..\..\Shared\UnityEngine.CoreModule.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>

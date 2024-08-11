@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+// Sorry.. Also, dependencies must be updated for the project. Not the "AKI" stuff anymore.
 using SPT.Reflection.Patching;
 using EFT;
 

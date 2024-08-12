@@ -1,3 +1,10 @@
+# Moved Repo
+- https://github.com/CWXDEV/MegaMod
+
+
+
+
+
 # All in One CWX-Mods
 ## currently for EFT - SPT-AKI. - 3.6.1
 
